@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/css/product-page.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav class="logo-nav">
+        <div class="logo">
+          <img src="/pictures/power3.png" alt="POWER STORM" height="75" />
+        </div>
+        <div class="wrapper">
+          <div class="search-input">
+            <div class="icon"><i class="fa fa-search"></i></div>
+            <input type="text" placeholder="I'm looking for..." />
+          </div>
+        </div>
+        <div class="burger">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <div class="user-wrapper">
+          <i class="fa-solid fa-user fa-lg user-icon"></i>
+        </div>
+
+        <div class="basket-wrapper">
+          <i class="fa-solid fa-basket-shopping fa-lg basket-icon"></i>
+        </div>
+      </nav>
+      <nav class="nav">
+        <ul class="nav-links">
+          <li>
+            <div class="search-input">
+              <div class="icon"><i class="fa fa-search"></i></div>
+              <input type="text" placeholder="I'm looking for..." />
+            </div>
+          </li>
+          <li><a href="#">Home</a></li>
+
+          <li><a href="#">About</a></li>
+
+          <li><a href="#">Work</a></li>
+
+          <li><a href="#">Projects</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="small-container single-product">
+        <div class="product-row">
+          <div class="col-2">
+            <img
+              src="/pictures/wear.jpg"
+              alt=""
+              width="100%"
+              id="product-img"
+            />
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <img
+                  src="/pictures/wear.jpg"
+                  alt=""
+                  width="100%"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src="/pictures/wear3.jpg"
+                  alt=""
+                  width="100%"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src="/pictures/wear4.jpg"
+                  alt=""
+                  width="100%"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <img
+                  src="/pictures/wear5.jpg"
+                  alt=""
+                  width="100%"
+                  class="small-img"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <p>HOME / WEAR</p>
+            <h1>T-Shirts by Power Storm</h1>
+            <h4>$29.99</h4>
+            <div class="product-options">
+              <select>
+                <option>Select size</option>
+                <option>XXL</option>
+                <option>XL</option>
+                <option>L</option>
+                <option>M</option>
+                <option>S</option>
+                <option>XS</option>
+              </select>
+              <input type="number" value="1" />
+            </div>
+            <a href="" class="btn">Add to cart</a>
+            <h3>Product Details</h3>
+            <br />
+            <p>
+              Give your summer wardrobe a style upgrade with the Men's Active
+              T-Shirt. Team it with a pair of short for your morining workout or
+              a denims for an evening out with the boys.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel wear -->
+      <div class="carousel-container">
+        <div class="carousel-header">
+          <p>
+            <span class="wear-mover">&#139;</span>
+          </p>
+          <h1 class="carousel-name">Related Products</h1>
+          <p>
+            <span class="wear-mover">&#155;</span>
+          </p>
+        </div>
+        <section class="products">
+          <div class="product">
+            <picture>
+              <img src="/pictures/wear1.jpg" alt="" />
+            </picture>
+            <div class="details">
+              <p>
+                <b>Product One</b><br />
+                <small>New arrival</small>
+              </p>
+              <samp>45.00$</samp>
+            </div>
+            <div class="button">
+              <p class="star">
+                <strong>&star;</strong>
+                <strong>&star;</strong>
+                <strong>&star;</strong>
+                <strong>&star;</strong>
+                <strong>&star;</strong>
+              </p>
+              <a href="#">Buy</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">affiliate program</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">shipping</a></li>
+              <li><a href="#">returns</a></li>
+              <li><a href="#">order status</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>online shop</h4>
+            <ul>
+              <li><a href="#">watch</a></li>
+              <li><a href="#">bag</a></li>
+              <li><a href="#">shoes</a></li>
+              <li><a href="#">dress</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/js/product-page.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

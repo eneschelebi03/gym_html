@@ -68,32 +68,70 @@ function loadProductDetails(id) {
 
 
 
+                // productDetails.innerHTML = "<p>HOME / WEAR</p>\n" +
+                //     "            <h1>" + product.name + " - " + chosenColor.colorName + "</h1>\n" +
+                //     "            <h4>$" + chosenColor.price.toFixed(2) + "</h4>\n" +
+                //     '            <div class="product-options">\n' +
+                //     '              <select id="sizes">\n' +
+                //     "              </select>\n" +
+                //     '              <input type="number" value="1" />\n' +
+                //     "            </div>\n" +
+                //     '            <div id="colors" class="colors-available"></div>' +
+                //     '            <a href="" class="btn">Add to cart</a>\n' +
+                //     "            <div class='product-description'>" +
+                //     "               <h3>Product Details</h3>\n" +
+                //     "               <br />\n" +
+                //     "               <p>" + product.description + "</p>\n" +
+                //     "            </div>"
+
                 productDetails.innerHTML = "<p>HOME / WEAR</p>\n" +
                     "            <h1>" + product.name + " - " + chosenColor.colorName + "</h1>\n" +
                     "            <h4>$" + chosenColor.price.toFixed(2) + "</h4>\n" +
-                    '            <div class="product-options">\n' +
-                    '              <select id="sizes">\n' +
-                    "              </select>\n" +
-                    '              <input type="number" value="1" />\n' +
+                    '            <div id="sizes" class="product-sizes">\n' +
                     "            </div>\n" +
                     '            <div id="colors" class="colors-available"></div>' +
-                    '            <a href="" class="btn">Add to cart</a>\n' +
+                    '            <div class="product-options">' +
+                    '             <div class="quantity-input">' +
+                    '              <span class="material-symbols-outlined">\n' +
+                    '               remove\n' +
+                    '              </span>' +
+                    '              <input type="number" value="1" />\n' +
+                    '              <span class="material-symbols-outlined">\n' +
+                    '              add\n' +
+                    '              </span>' +
+                    '             </div>' +
+                    '             <a href="" class="btn">Add to cart</a>\n' +
+                    '            </div>' +
                     "            <div class='product-description'>" +
                     "               <h3>Product Details</h3>\n" +
                     "               <br />\n" +
                     "               <p>" + product.description + "</p>\n" +
                     "            </div>"
 
-
                 let availableSizes = document.getElementById('sizes')
                 console.log(chosenColor.sizes)
 
-                chosenColor.sizes.forEach(size => {
+                let sizeNames = new Array();
 
-                    let sizeOption = document.createElement('option')
-                    sizeOption.innerHTML = size.name
+                chosenColor.sizes.forEach(size => {
+                    sizeNames.push(size.name)
+                })
+
+                sizeNames.sort(sortSizes)
+
+                sizeNames.forEach((sizeName, index) => {
+
+
+                    let sizeOption = document.createElement('span')
+                    sizeOption.classList.add('size')
+                    sizeOption.innerHTML = sizeName
 
                     availableSizes.appendChild(sizeOption)
+
+                    sizeOption.onclick = function () {
+                        $('.size').removeClass('chosen')
+                        sizeOption.classList.add('chosen')
+                    }
                 })
 
 
@@ -136,16 +174,7 @@ function loadProductDetails(id) {
 
 
 
-            //     .forEach(size => function () {
 
-            //     console.log(size)
-
-            // })
-
-            //     "          </div>\n" +
-            //     "        </div>\n" +
-            //     "      </div>\n" +
-            //     "\n" +
             //     "      <!-- Carousel wear -->\n" +
             //     '      <div class="carousel-container">\n' +
             //     '        <div class="carousel-header">\n' +

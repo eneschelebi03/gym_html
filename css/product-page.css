@@ -174,7 +174,7 @@ body {
 }
 
 .quantity-input input {
-  width: 60px;
+  width: 65px;
   height: 40px;
   font-size: 17px;
   border: 2px solid #ff9a3b;
@@ -200,10 +200,23 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .quantity-input span {
   font-size: 28px;
-  color: #ff9a3b;
+  color: whitesmoke;
+  /* color: #ff9a3b; */
+  background-color: #ff9a3b;
+  padding: 5px;
+  border-radius: 50%;
   cursor: pointer;
   font-weight: 600;
+  transition: ease-in-out .3s;
+}
 
+.quantity-input span:hover {
+  color: #ff9a3b;
+  background-color: white;
+}
+
+.quantity-input span:active {
+  box-shadow: 0 0 0 5px #ff9a3b;
 }
 
 .btn {
@@ -219,7 +232,14 @@ input[type="number"]::-webkit-outer-spin-button {
 .btn:hover {
   background: white;
   color: #ff9a3b;
-  border: 1px solid #ff9a3b;
+  /* border: 1px solid #ff9a3b; */
+  outline: 2px solid #ff9a3b;
+}
+
+.btn:active {
+  outline: 3px solid #ff9a3b;
+  transform: scale(0.96);
+
 }
 
 .product-description {

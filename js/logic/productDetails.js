@@ -92,11 +92,11 @@ function loadProductDetails(id) {
                     '            <div id="colors" class="colors-available"></div>' +
                     '            <div class="product-options">' +
                     '             <div class="quantity-input">' +
-                    '              <span class="material-symbols-outlined">\n' +
+                    '              <span id="decrement" class="material-symbols-outlined">\n' +
                     '               remove\n' +
                     '              </span>' +
-                    '              <input type="number" value="1" />\n' +
-                    '              <span class="material-symbols-outlined">\n' +
+                    '              <input id="quantity" type="number" value="1" min="1" max="99">\n' +
+                    '              <span id="increment" class="material-symbols-outlined">\n' +
                     '              add\n' +
                     '              </span>' +
                     '             </div>' +
@@ -174,43 +174,83 @@ function loadProductDetails(id) {
 
 
 
+            let decrementButton = document.getElementById("decrement");
+            let incrementButton = document.getElementById("increment");
+            let quantityInput = document.getElementById("quantity");
+            incrementButton.addEventListener("click", function () {
+                let increment = Number(this.previousElementSibling.value);
 
-            //     "      <!-- Carousel wear -->\n" +
-            //     '      <div class="carousel-container">\n' +
-            //     '        <div class="carousel-header">\n' +
-            //     "          <p>\n" +
-            //     '            <span class="wear-mover">&#139;</span>\n' +
-            //     "          </p>\n" +
-            //     '          <h1 class="carousel-name">Related Products</h1>\n' +
-            //     "          <p>\n" +
-            //     '            <span class="wear-mover">&#155;</span>\n' +
-            //     "          </p>\n" +
-            //     "        </div>\n" +
-            //     '        <section class="products">\n' +
-            //     '          <div class="product">\n' +
-            //     "            <picture>\n" +
-            //     '              <img src="/pictures/wear1.jpg" alt="" />\n' +
-            //     "            </picture>\n" +
-            //     '            <div class="details">\n' +
-            //     "              <p>\n" +
-            //     "                <b>Product One</b><br />\n" +
-            //     "                <small>New arrival</small>\n" +
-            //     "              </p>\n" +
-            //     "              <samp>45.00$</samp>\n" +
-            //     "            </div>\n" +
-            //     '            <div class="button">\n' +
-            //     '              <p class="star">\n' +
-            //     "                <strong>&star;</strong>\n" +
-            //     "                <strong>&star;</strong>\n" +
-            //     "                <strong>&star;</strong>\n" +
-            //     "                <strong>&star;</strong>\n" +
-            //     "                <strong>&star;</strong>\n" +
-            //     "              </p>\n" +
-            //     '              <a href="#">Buy</a>\n' +
-            //     "            </div>\n" +
-            //     "          </div>\n" +
-            //     "        </section>\n" +
-            //     "      </div>";
+                increment >= 99 ? 99 : increment++;
+
+                console.log(quantityInput.value)
+
+                quantityInput.value = increment
+
+
+            });
+
+            decrementButton.addEventListener("click", function () {
+                let decrement = Number(this.nextElementSibling.value);
+
+                decrement <= 1 ? 1 : decrement--;
+
+                quantityInput.value = decrement
+            });
+
+            quantityInput.oninput = function () {
+                var max = parseInt(this.max);
+
+                if (parseInt(this.value) > max) {
+                    this.value = max;
+                }
+
+                var min = parseInt(this.min)
+
+                if (parseInt(this.value) < min) {
+                    this.value = min;
+                }
+            }
+
+
+
+            let carouselContainer = document.createElement('div')
+            carouselContainer.classList.add('carousel-container')
+
+            carouselContainer.innerHTML = '<div class="carousel-container">\n' +
+                '        <div class="carousel-header">\n' +
+                "          <p>\n" +
+                '            <span class="wear-mover">&#139;</span>\n' +
+                "          </p>\n" +
+                '          <h1 class="carousel-name">Recommended for you</h1>\n' +
+                "          <p>\n" +
+                '            <span class="wear-mover">&#155;</span>\n' +
+                "          </p>\n" +
+                "        </div>\n" +
+                '        <section class="products">\n' +
+                '          <div class="product">\n' +
+                "            <picture>\n" +
+                '              <img src="/pictures/wear1.jpg" alt="" />\n' +
+                "            </picture>\n" +
+                '            <div class="details">\n' +
+                "              <p>\n" +
+                "                <b>Product One</b><br />\n" +
+                "                <small>New arrival</small>\n" +
+                "              </p>\n" +
+                "              <samp>45.00$</samp>\n" +
+                "            </div>\n" +
+                '            <div class="button">\n' +
+                '              <p class="star">\n' +
+                "                <strong>&star;</strong>\n" +
+                "                <strong>&star;</strong>\n" +
+                "                <strong>&star;</strong>\n" +
+                "                <strong>&star;</strong>\n" +
+                "                <strong>&star;</strong>\n" +
+                "              </p>\n" +
+                '              <a href="#">Buy</a>\n' +
+                "            </div>\n" +
+                "          </div>\n" +
+                "        </section>\n" +
+                "      </div>";
         }
     )
         .done(function () { })

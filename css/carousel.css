@@ -1,0 +1,289 @@
+/* Carousel wear */
+.carousel-container {
+  width: 90%;
+  margin: 10px auto;
+  position: relative;
+  padding: 5px 0;
+}
+
+.carousel-container header {
+  width: 98%;
+  margin: 20px auto;
+  align-items: center;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  border-radius: 50px;
+  background-color: #ecf0f9;
+  -webkit-box-shadow: 0px 6px 26px -5px rgba(212, 212, 212, 1);
+  -moz-box-shadow: 0px 6px 26px -5px rgba(212, 212, 212, 1);
+  box-shadow: 0px 6px 26px -5px rgba(212, 212, 212, 1);
+  transition: ease .3s;
+}
+
+.carousel-container header:hover {
+    box-shadow: none;
+}
+
+.carousel-container header h1 {
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: rgb(80, 75, 70);
+  font-size: 35px;
+  font-family: "Cormorant SC", serif;
+  cursor: default;
+}
+
+.wear-mover,
+.supp-mover {
+  font-size: 40px;
+  margin: 0 5px;
+  cursor: pointer;
+  color: rgb(232, 130, 62);
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  line-height: 19px;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.wear-mover:h,
+.supp-mover:hover {
+  color: rgb(224, 224, 224);
+}
+
+.products {
+  width: 100%;
+  padding: 20px 0;
+  margin: 0 auto 70px 0;
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+}
+
+section::-webkit-scrollbar {
+  display: none;
+}
+
+section .product {
+  width: 23.2%;
+  background: none;
+  margin: 40px 10px 0 10px;
+  border-radius: 20px;
+  position: relative;
+  left: 0;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+section .product:hover {
+  background-color: rgb(234, 234, 234);
+  box-shadow: 0 0 10px 1px #9f9a93;;
+}
+.product picture {
+  padding: 20px;
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.product picture img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+section .product .details,
+section .product .buy {
+  width: 100%;
+  padding: 10px 20px 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 19%;
+  font-size: 16px;
+  color: rgb(80, 75, 70);
+}
+
+.details {
+  flex-direction: column;
+}
+
+.buy {
+  align-items: center;
+}
+
+.buy span {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+small {
+  color: rgb(232, 130, 62);
+}
+
+.product a,
+.supp-product a {
+  text-decoration: none;
+  padding: 7px 24px;
+  font-size: 15px;
+  margin: 5px 0 0 16px;
+  display: inline-block;
+  background: rgb(232, 130, 62);
+  color: whitesmoke;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+}
+
+.buy a:hover {
+  background: whitesmoke;
+  color: rgb(232, 130, 62);
+}
+
+p.star {
+  font-size: 19px;
+}
+
+@media (max-width: 1024px) {
+  main header h1 {
+    font-size: 30px;
+  }
+
+  section .product {
+    min-width: 23.9%;
+    margin: 0 10px 0 0;
+  }
+
+  .details,
+  .buy {
+    font-size: 14px;
+  }
+
+  .product a,
+  .supp-product a {
+    font-size: 12px;
+    padding: 7px 17px;
+  }
+
+  p.star {
+    margin: 4px auto 0 0;
+    width: 50%;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 840px) {
+  section .product {
+    min-width: 32%;
+  }
+
+  .details,
+  .buy {
+    font-size: 14px;
+  }
+
+  .product a,
+  .supp-product a {
+    font-size: 12px;
+    padding: 7px 17px;
+  }
+
+  p.star {
+    margin: 4px auto 0 0;
+    width: 50%;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  section .product {
+    min-width: 48.3%;
+  }
+
+  .details {
+    font-size: 16px;
+  }
+
+  p.star {
+    font-size: 19px;
+  }
+
+  .product a,
+  .supp-product a {
+    font-size: 15px;
+    padding: 7px 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  main header h1 {
+    font-size: 22px;
+  }
+
+  .wear-mover,
+  .supp-mover {
+    font-size: 30px;
+  }
+
+  section .product {
+    min-width: 50%;
+  }
+
+  .details,
+  .buy {
+    font-size: 14px;
+  }
+
+  .product a {
+    font-size: 12px;
+    padding: 6px 17px;
+  }
+
+  p.star {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 420px) {
+  main header {
+    margin: 15px auto;
+  }
+
+  main header h1 {
+    font-size: 25px;
+  }
+
+  .wear-mover {
+    font-size: 26px;
+    width: 17px;
+    height: 17px;
+  }
+
+  .product picture {
+    padding: 15px;
+    margin-bottom: 11px;
+  }
+
+  .details,
+  .buy {
+    font-size: 13px;
+  }
+
+  .buy span {
+    font-size: 1.2rem;
+  }
+
+  .product a {
+    font-size: 11px;
+    padding: 4px 14px;
+    margin: 5px 0 0 10px;
+  }
+
+  p.star {
+    margin: 4px auto 0 0;
+    width: 65%;
+    font-size: 13px;
+  }
+}

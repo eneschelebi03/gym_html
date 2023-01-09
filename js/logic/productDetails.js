@@ -4,6 +4,7 @@ function loadProductDetails(id) {
         function (product) {
             $("#product-styling").attr("href", "/css/product-page.css");
 
+            // <--------------- LAYOUT INIT --------------->
             let mainContainer = document.getElementById("main-container");
             mainContainer.innerHTML = "";
 
@@ -37,8 +38,7 @@ function loadProductDetails(id) {
 
 
 
-            // <------------- PRODUCT INTIALIZE ------------->
-
+            // <------------- PRODUCT INIT ------------->
             function productInit(colorId) {
                 $('.small-img-col').remove()
                 $('small-img').remove()
@@ -108,6 +108,8 @@ function loadProductDetails(id) {
                     "               <p>" + product.description + "</p>\n" +
                     "            </div>"
 
+                
+                // <--------------- SIZES LOGIC --------------->
                 let availableSizes = document.getElementById('sizes')
                 console.log(chosenColor.sizes)
 
@@ -135,6 +137,7 @@ function loadProductDetails(id) {
                 })
 
 
+                // <--------------- COLORS LOGIC --------------->
                 let availableColors = document.getElementById('colors')
                 availableColors.classList.add('colors-available')
                 product.colors.forEach((color, index) => {
@@ -168,93 +171,96 @@ function loadProductDetails(id) {
                 colorOptions[colorId].classList.add('chosen')
 
                 $('.chosen').css('box-shadow', ' 0 0 0 3px white, ' + '0 0 0 8px' + chosenColor.colorCode)
+
+                // <--------------- INCREMENET AND DECREMENT QUANTITY LOGIC --------------->
+                let decrementButton = document.getElementById("decrement");
+                let incrementButton = document.getElementById("increment");
+                let quantityInput = document.getElementById("quantity");
+                incrementButton.addEventListener("click", function () {
+                    let increment = Number(this.previousElementSibling.value);
+
+                    increment >= 99 ? 99 : increment++;
+
+                    console.log(quantityInput.value)
+
+                    quantityInput.value = increment
+
+
+                });
+
+                decrementButton.addEventListener("click", function () {
+                    let decrement = Number(this.nextElementSibling.value);
+
+                    decrement <= 1 ? 1 : decrement--;
+
+                    quantityInput.value = decrement
+                });
+
+                quantityInput.oninput = function () {
+                    var max = parseInt(this.max);
+
+                    if (parseInt(this.value) > max) {
+                        this.value = max;
+                    }
+
+                    var min = parseInt(this.min)
+
+                    if (parseInt(this.value) < min) {
+                        this.value = min;
+                    }
+                }
             }
 
             productInit(0);
+            displayRecommendedProducts(product.id)
 
 
 
-            let decrementButton = document.getElementById("decrement");
-            let incrementButton = document.getElementById("increment");
-            let quantityInput = document.getElementById("quantity");
-            incrementButton.addEventListener("click", function () {
-                let increment = Number(this.previousElementSibling.value);
-
-                increment >= 99 ? 99 : increment++;
-
-                console.log(quantityInput.value)
-
-                quantityInput.value = increment
-
-
-            });
-
-            decrementButton.addEventListener("click", function () {
-                let decrement = Number(this.nextElementSibling.value);
-
-                decrement <= 1 ? 1 : decrement--;
-
-                quantityInput.value = decrement
-            });
-
-            quantityInput.oninput = function () {
-                var max = parseInt(this.max);
-
-                if (parseInt(this.value) > max) {
-                    this.value = max;
-                }
-
-                var min = parseInt(this.min)
-
-                if (parseInt(this.value) < min) {
-                    this.value = min;
-                }
-            }
 
 
 
-            let carouselContainer = document.createElement('div')
-            carouselContainer.classList.add('carousel-container')
 
-            carouselContainer.innerHTML = '<div class="carousel-container">\n' +
-                '        <div class="carousel-header">\n' +
-                "          <p>\n" +
-                '            <span class="wear-mover">&#139;</span>\n' +
-                "          </p>\n" +
-                '          <h1 class="carousel-name">Recommended for you</h1>\n' +
-                "          <p>\n" +
-                '            <span class="wear-mover">&#155;</span>\n' +
-                "          </p>\n" +
-                "        </div>\n" +
-                '        <section class="products">\n' +
-                '          <div class="product">\n' +
-                "            <picture>\n" +
-                '              <img src="/pictures/wear1.jpg" alt="" />\n' +
-                "            </picture>\n" +
-                '            <div class="details">\n' +
-                "              <p>\n" +
-                "                <b>Product One</b><br />\n" +
-                "                <small>New arrival</small>\n" +
-                "              </p>\n" +
-                "              <samp>45.00$</samp>\n" +
-                "            </div>\n" +
-                '            <div class="button">\n' +
-                '              <p class="star">\n' +
-                "                <strong>&star;</strong>\n" +
-                "                <strong>&star;</strong>\n" +
-                "                <strong>&star;</strong>\n" +
-                "                <strong>&star;</strong>\n" +
-                "                <strong>&star;</strong>\n" +
-                "              </p>\n" +
-                '              <a href="#">Buy</a>\n' +
-                "            </div>\n" +
-                "          </div>\n" +
-                "        </section>\n" +
-                "      </div>";
+
+
+            // carouselContainer.innerHTML = '<div class="carousel-header">\n' +
+            //     '          <h1 class="carousel-name">Recommended for you</h1>\n' +
+            //     "        </div>\n" +
+            //     '        <section class="products"></section>\n';
         }
     )
-        .done(function () { })
+        .done(function () {
+        })
         .fail(function () {
             alert("failed");
         });
+}
+
+function displayRecommendedProducts(productId) {
+    let mainContainer = document.getElementById("main-container");
+
+    let carouselContainer = document.createElement('div')
+    carouselContainer.classList.add('carousel-container')
+
+
+    let carouselHeader = document.createElement('header')
+    carouselHeader.classList.add('carousel-header')
+
+
+    let carouselName = document.createElement('h1')
+    carouselName.classList.add('carousel-name')
+    carouselName.textContent = 'Recommended for you'
+
+    carouselHeader.appendChild(carouselName)
+    carouselContainer.appendChild(carouselHeader)
+
+    let prorductsSection = document.createElement('section')
+    prorductsSection.classList.add('products')
+    prorductsSection.id = 'recommended-products'
+
+    console.log(prorductsSection.id)
+
+    loadRecommendedProducts(productId)
+
+    carouselContainer.appendChild(prorductsSection)
+    mainContainer.append(carouselContainer)
 }

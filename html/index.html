@@ -23,50 +23,14 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    <script src="/js/logic/HtmlImporter.js"></script>
+
     <title>NAVIGATIOn</title>
   </head>
   <body>
-    <!-- Navigation -->
-    <nav class="logo-nav">
-      <div id="logo" class="logo">
-        <img src="/pictures/power3.png" alt="POWER STORM" height="75" />
-      </div>
-      <div class="wrapper">
-        <div class="search-input">
-          <div class="icon"><i class="fa fa-search"></i></div>
-          <input type="text" placeholder="I'm looking for..." />
-        </div>
-      </div>
-      <div class="burger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
-      <div class="user-wrapper">
-        <i class="fa-solid fa-user fa-lg user-icon"></i>
-      </div>
-
-      <div class="basket-wrapper">
-        <i class="fa-solid fa-basket-shopping fa-lg basket-icon"></i>
-      </div>
-    </nav>
-    <nav class="nav">
-      <ul class="nav-links">
-        <li>
-          <div class="search-input">
-            <div class="icon"><i class="fa fa-search"></i></div>
-            <input type="text" placeholder="I'm looking for..." />
-          </div>
-        </li>
-        <li><a href="/html/products.html">Home</a></li>
-
-        <li><a href="#">About</a></li>
-
-        <li><a href="#">Work</a></li>
-
-        <li><a href="#">Projects</a></li>
-      </ul>
-    </nav>
+    
+    <!-- Header -->
+    <script>HTMLImporter.import("/html/fragments/header.html")</script>
 
     <!-- Carousel Main -->
     <div id="offers" class="img-slider">
@@ -398,9 +362,9 @@
       crossorigin="anonymous"
     ></script>
 
-    <script src="/js/logic/carouselProducts.js"></script>
+    <!-- <script src="/js/logic/carouselProducts.js"></script>
     <script src="/js/logic/mainCarouselHome.js"></script>
-    <script src="/js/logic/carouselAction.js"></script>
+    <script src="/js/logic/carouselAction.js"></script> -->
 
     <script src="/js/design/app.js"></script>
     <script

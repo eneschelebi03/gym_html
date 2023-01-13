@@ -100,7 +100,7 @@ function loadProductDetails(id) {
                     '              add\n' +
                     '              </span>' +
                     '             </div>' +
-                    '             <a href="" class="btn">Add to cart</a>\n' +
+                    '             <a href="/html/shopping-cart.html" class="btn">Add to cart</a>\n' +
                     '            </div>' +
                     "            <div class='product-description'>" +
                     "               <h3>Product Details</h3>\n" +
@@ -108,7 +108,7 @@ function loadProductDetails(id) {
                     "               <p>" + product.description + "</p>\n" +
                     "            </div>"
 
-                
+
                 // <--------------- SIZES LOGIC --------------->
                 let availableSizes = document.getElementById('sizes')
                 console.log(chosenColor.sizes)

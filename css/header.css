@@ -72,9 +72,7 @@ li {
   display: none;
   cursor: pointer;
   margin-left: 3%;
-  width: 20%;
-  /* position: absolute; */
-  /* left: 5%; */
+  margin-right: calc(20% - 25px);
 }
 
 .burger div {
@@ -181,14 +179,58 @@ nav .nav-active {
 
 .user-wrapper .pop-up {
   display: flex;
+  cursor: auto;
   flex-direction: column;
+  justify-content: space-evenly;
   position: absolute;
   background: rebeccapurple;
-  width: 200px;
+  width: 300px;
+  height: 140px;
   text-align: center;
-  /* top: 7vh; */
   margin-top: 10px;
+  border-radius: 20px;
+  background-color: rgb(40, 40, 43);
+  box-shadow: 0 10px 20px rgb(11 8 6);
   z-index: 4;
+  transition: all ease 0.3s;
+  /* display: none; */
+  height: 0;
+}
+
+
+.user-wrapper .pop-up button {
+  width: 90%;
+  height: 45px;
+  border-radius: 10px;  
+  font-weight: 600;
+  font-size: 17px;
+  text-transform: capitalize;
+  background-color: rgba(109, 109, 110, 0.818);
+  border: none;
+  box-shadow: 0 5px 10px rgb(11 8 6);
+  cursor: pointer;
+  color: rgb(245, 245, 245);
+  transition: ease 0.3s;
+  display: none;
+}
+
+.user-wrapper .pop-up button:hover {
+ box-shadow: none;
+}
+
+.user-wrapper .pop-up button:active {
+  transform: scale(.94);
+  border: 1px solid rgb(178, 155, 140);
+
+}
+
+.user-wrapper:hover .pop-up {
+  display: flex;
+  height: 150px;
+}
+
+.user-wrapper:hover .pop-up button {
+  display:inline;
 }
 
 .basket-wrapper {
@@ -258,6 +300,15 @@ nav .nav-active {
 
   .user-tools {
     margin-right: 3%;
+  }
+
+  .user-wrapper {
+    align-items: flex-end;
+  }
+
+  .user-wrapper .pop-up {
+    border-radius: 20px 0 20px 20px;
+
   }
 
   .basket-wrapper {

@@ -20,7 +20,6 @@ function loadMainCarousel() {
 
             slides.push(slide)
 
-            // exclusiveCarousel.;
             let picUrl = exclusive.pictureUrl
 
             let offerPicture = document.createElement('img')

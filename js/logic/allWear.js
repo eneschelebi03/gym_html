@@ -3,7 +3,7 @@ $(document).ready(function () {
 });
 
 function loadAllProducts() {
-    $.get("http://localhost:8080/wear/all", function (responseJson) {
+    $.get("http://localhost:8080/products/wear/all", function (responseJson) {
         let productsContainer = document.getElementById("products");
 
         let displayPoducts = [];

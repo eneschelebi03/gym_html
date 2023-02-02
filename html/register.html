@@ -18,10 +18,10 @@
     <title>POWERSTORM - Login or Register</title>
   </head>
   <body>
-    <div class="container">
+    <div class="container sign-up-mode">
       <div class="forms-container">
         <div class="signin-signup">
-          <form id="login-form" class="sign-in-form">
+          <form action="http://localhost:8080/users/login" method="POST" class="sign-in-form">
             <img
               src="/pictures/power3.png"
               alt="POWERSTORM"
@@ -140,11 +140,7 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script src="/js/design/reg-login.js"></script>
-
-    <script src="/js/logic/login.js"></script>
-    <script src="/js/logic/getUserRoles.js"></script>
   </body>
 </html>

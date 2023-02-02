@@ -17,12 +17,12 @@
   <div class="user-tools">
     <div class="user-wrapper">
       <i id="icon" class="fa-solid fa-user fa-lg user-icon"></i>
-      <ul class="pop-up">
+      <ul id="auth-options" class="pop-up">
         <li>
-          <button onclick="location.href='/html/login.html'">Login</button>
+          <button id="login-btn" onclick="location.href='/html/login.html'">Login</button>
         </li>
         <li>
-          <button>Sign Up</button>
+          <button id="reg-btn" onclick="location.href = '/html/register.html'">Sign Up</button>
         </li>
       </ul>
     </div>
@@ -48,3 +48,5 @@
     <li><a href="#">Projects</a></li>
   </ul>
 </nav>
+
+<script src="/js/logic/getUserRoles.js"></script>

@@ -1,6 +1,5 @@
 let loginBtn = document.getElementById("login-btn");
 
-var userRoles = new Array;
 
 loginBtn.onclick = function (event) {
   event.preventDefault();
@@ -17,7 +16,8 @@ loginBtn.onclick = function (event) {
       // if (loginResponse === "User signed-in successfully!.") {
         // Login was successful, redirect to the home page
         // getUserRoles();
-        userRoles = loginResponse.slice();
+        window.localStorage.setItem('roles', loginResponse);
+        window.localStorage.setItem('username', username);
         window.location.href = "/html/index.html";
       } else {
         // Login failed, do something here
@@ -46,3 +46,4 @@ loginBtn.onclick = function (event) {
   //   $("#mypar").html(response.amount);
   // });
 };
+

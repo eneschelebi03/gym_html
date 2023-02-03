@@ -8,8 +8,8 @@ $(document).ready(function () {
 });
 
 function getUserRoles() {
-    let userRoles = window.localStorage.getItem('roles');
-    let username = window.localStorage.getItem('username');
+    let userRoles = window.sessionStorage.getItem('roles');
+    let username = window.sessionStorage.getItem('username');
 
     let authOptions = document.getElementById("auth-options");
 
@@ -17,8 +17,8 @@ function getUserRoles() {
         authOptions.style.display = "none";
     }
 
-    console.log(window.localStorage.getItem('roles'));
-    console.log(window.localStorage.getItem('username'));
+    console.log(window.sessionStorage.getItem('roles'));
+    console.log(window.sessionStorage.getItem('username'));
 
     // console.log('getting user')
     // $.get("http://localhost:8080/users/user", function (responseJson) {

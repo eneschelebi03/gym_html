@@ -100,7 +100,7 @@ function loadProductDetails(id) {
                     '              add\n' +
                     '              </span>' +
                     '             </div>' +
-                    '             <a href="/html/shopping-cart.html" class="btn">Add to cart</a>\n' +
+                    '             <a id="add-to-cart-btn" class="btn">Add to cart</a>\n' +
                     '            </div>' +
                     "            <div class='product-description'>" +
                     "               <h3>Product Details</h3>\n" +
@@ -208,6 +208,11 @@ function loadProductDetails(id) {
                     if (parseInt(this.value) < min) {
                         this.value = min;
                     }
+                }
+
+                let addToCartBtn = document.getElementById('add-to-cart-btn')
+                addToCartBtn.onclick = function () {
+                    addToCart(product.id)
                 }
             }
 

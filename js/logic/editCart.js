@@ -1,0 +1,88 @@
+$(document).ready(function () {
+    getCart()
+});
+
+function addToCart(id) {
+    let email = window.sessionStorage.getItem('username')
+
+    $.ajax({
+        url: 'http://localhost:8080/cart/addProduct?' + $.param({ email: email, productId: id }),
+        method: 'POST'
+    });
+}
+
+function getCart() {
+    let email = window.sessionStorage.getItem('username')
+    let itemsPrice = 0;
+
+    $.get("http://localhost:8080/cart/products?" + $.param({ email: email }), function (responseJson) {
+
+        let cartItems = document.getElementById('cart-items')
+        
+
+        $.each(responseJson, function (index, cartItem) {
+
+            let item = document.createElement('div')
+            item.classList.add('product-card')
+
+            item.innerHTML = '<div class="card">\n' +
+                '                <div class="img-box">\n' +
+                '                  <img\n' +
+                '                    src="' + cartItem.pictureUrl + '"\n' +
+                '                    alt="Blue wear"\n' +
+                '                    width="80px"\n' +
+                '                    class="product-img"\n' +
+                '                  />\n' +
+                '                </div>\n' +
+                '\n' +
+                '                <div class="detail">\n' +
+                '                  <h4 class="product-name">' + cartItem.name + '</h4>\n' +
+                '\n' +
+                '                  <div class="wrapper">\n' +
+                '                    <div class="product-qty">\n' +
+                '                      <button id="decrement">\n' +
+                '                        <ion-icon name="remove-outline"></ion-icon>\n' +
+                '                      </button>\n' +
+                '                      <span id="quantity">1</span>\n' +
+                '                      <button id="increment">\n' +
+                '                        <ion-icon name="add-outline"></ion-icon>\n' +
+                '                      </button>\n' +
+                '                    </div>\n' +
+                '\n' +
+                '                    <div class="price">$ <span id="price">' + cartItem.price + '</span></div>\n' +
+                '                  </div>\n' +
+                '                </div>\n' +
+                '\n' +
+                '                <button id="product-close-btn' + index + '" class="product-close-btn">\n' +
+                '                  <ion-icon name="close-outline"></ion-icon>\n' +
+                '                </button>\n' +
+                '              </div>'
+            cartItems.append(item)
+
+            let removeBtn = document.getElementById('product-close-btn' + index);
+            removeBtn.onclick = function () {
+                removeCartItem(cartItem.id)
+            }
+
+            itemsPrice += cartItem.price
+        });
+
+    }).done(function () {
+        document.body.appendChild(document.createElement('script')).src = '/js/design/cart.js';
+        let subtotal = document.querySelector("#subtotal");
+        subtotal.textContent = itemsPrice;
+
+
+    }).fail(function () {
+        alert('failed')
+    })
+}
+
+function removeCartItem(id) {
+    let email = window.sessionStorage.getItem('username')
+
+    $.ajax({
+        url: 'http://localhost:8080/cart/removeProduct?' + $.param({ email: email, productId: id }),
+        method: 'POST'
+    });
+}

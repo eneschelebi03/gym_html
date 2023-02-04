@@ -11,6 +11,8 @@ const subtotalElem = document.querySelector("#subtotal");
 const taxElem = document.querySelector("#tax");
 const totalElem = document.querySelector("#total");
 
+totalCalc()
+
 for (let i = 0; i < incrementBtn.length; i++) {
   incrementBtn[i].addEventListener("click", function () {
     let increment = Number(this.previousElementSibling.textContent);
@@ -35,7 +37,8 @@ for (let i = 0; i < incrementBtn.length; i++) {
 
 /* ================== TOTAL PRICE CALCULATION ================== */
 
-const totalCalc = function () {
+
+function totalCalc() {
   const tax = 0.05;
   let subtotal = 0;
   let totalTax = 0;

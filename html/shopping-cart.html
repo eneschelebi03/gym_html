@@ -21,6 +21,8 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     />
 
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
     <title>Shopping cart</title>
   </head>
 
@@ -223,9 +225,9 @@
 
         <section class="cart">
           
-          <div class="cart-item-box"> 
+          <div id="cart-items" class="cart-item-box"> 
             <h2 class="section-heading">Order Summary</h2>
-            <div class="product-card">
+            <!-- <div class="product-card">
               <div class="card">
                 <div class="img-box">
                   <img
@@ -293,7 +295,7 @@
                   <ion-icon name="close-outline"></ion-icon>
                 </button>
               </div>
-            </div>
+            </div> -->
           </div>
 
           <div class="wrapper">
@@ -315,10 +317,10 @@
             <div class="amount">
               <div class="subtotal">
                 <span>Subtotal:</span
-                ><span> $ <span id="subtotal">2.05</span></span>
+                ><span> $ <span id="subtotal">0.00</span></span>
               </div>
               <div class="tax">
-                <span>Tax:</span><span> $ <span id="tax">0.50</span></span>
+                <span>Tax:</span><span> $ <span id="tax">0.00</span></span>
               </div>
               <div class="shipping">
                 <span>Shipping:</span
@@ -326,7 +328,7 @@
               </div>
             </div>
             <div class="total">
-                <span>Total:</span><span> $ <span id="total">2.55</span></span>
+                <span>Total:</span><span> $ <span id="total">0.00</span></span>
               </div>
           </div>
         </section>
@@ -377,7 +379,9 @@
       </div>
     </footer>
 
-    <script src="/js/cart.js"></script>
+    <!-- <script src="/js/design/cart.js"></script> -->
+
+    <script src="/js/logic/editCart.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

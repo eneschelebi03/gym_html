@@ -212,7 +212,9 @@ function loadProductDetails(id) {
 
                 let addToCartBtn = document.getElementById('add-to-cart-btn')
                 addToCartBtn.onclick = function () {
-                    addToCart(product.id)
+                    let chosenSize = document.querySelector('.size.chosen').textContent
+                    console.log(chosenColor.colorName)
+                    addToCart(product.id, chosenColor.colorName, chosenSize)
                 }
             }
 

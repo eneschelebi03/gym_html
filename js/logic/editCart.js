@@ -2,12 +2,15 @@ $(document).ready(function () {
     getCart()
 });
 
-function addToCart(id) {
+function addToCart(id, chosenColor, chosenSize) {
     let email = window.sessionStorage.getItem('username')
 
     $.ajax({
-        url: 'http://localhost:8080/cart/addProduct?' + $.param({ email: email, productId: id }),
-        method: 'POST'
+        url: 'http://localhost:8080/cart/addProduct?' + $.param({ email: email }),
+        method: 'POST',
+        contentType: "application/json",
+        data: JSON.stringify({ wearId: id, color: chosenColor, size: chosenSize })
+        
     });
 }
 
@@ -18,14 +21,14 @@ function getCart() {
     $.get("http://localhost:8080/cart/products?" + $.param({ email: email }), function (responseJson) {
 
         let cartItems = document.getElementById('cart-items')
-        
+
 
         $.each(responseJson, function (index, cartItem) {
 
             let item = document.createElement('div')
             item.classList.add('product-card')
 
-            item.innerHTML = '<div class="card">\n' +
+            item.innerHTML = '<div id="cart-item-' + index + '" class="card">\n' +
                 '                <div class="img-box">\n' +
                 '                  <img\n' +
                 '                    src="' + cartItem.pictureUrl + '"\n' +
@@ -61,7 +64,7 @@ function getCart() {
 
             let removeBtn = document.getElementById('product-close-btn' + index);
             removeBtn.onclick = function () {
-                removeCartItem(cartItem.id)
+                removeCartItem(cartItem.id, cartItem.color, cartItem.size)
             }
 
             itemsPrice += cartItem.price
@@ -78,11 +81,16 @@ function getCart() {
     })
 }
 
-function removeCartItem(id) {
+function removeCartItem(id, chosenColor, chosenSize) {
     let email = window.sessionStorage.getItem('username')
 
     $.ajax({
-        url: 'http://localhost:8080/cart/removeProduct?' + $.param({ email: email, productId: id }),
-        method: 'POST'
+        url: 'http://localhost:8080/cart/removeProduct?' + $.param({ email: email }),
+        method: 'POST',
+        contentType: "application/json",
+        data: JSON.stringify({ wearId: id, color: chosenColor, size: chosenSize }),
+        success: function () {
+            window.location.reload()
+        }
     });
 }

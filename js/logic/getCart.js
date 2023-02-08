@@ -28,7 +28,7 @@ function getCart() {
                 '\n' +
                 '                <div class="detail">\n' +
                 '                  <h4 class="product-name">' + cartItem.name + ' - ' + cartItem.color +
-                '                      <span id="colorCode-' + index + '" class="color-visual"></span>' +
+                '                      <span class="color-visual"></span>' +
                 '                         <br> ' + cartItem.size +
                 '                  </h4>\n' +
                 '\n' +
@@ -51,7 +51,10 @@ function getCart() {
                 '                  <ion-icon name="close-outline"></ion-icon>\n' +
                 '                </button>\n' +
                 '              </div>'
+            
             cartItems.append(item)
+            $('.color-visual').eq(index).css('background-color', cartItem.colorCode)
+            
 
             let removeBtn = document.getElementById('product-close-btn' + index);
             removeBtn.onclick = function () {

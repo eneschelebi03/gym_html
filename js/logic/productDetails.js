@@ -87,6 +87,7 @@ function loadProductDetails(id) {
                 productDetails.innerHTML = "<p>HOME / WEAR</p>\n" +
                     "            <h1>" + product.name + " - " + chosenColor.colorName + "</h1>\n" +
                     "            <h4>$" + chosenColor.price.toFixed(2) + "</h4>\n" +
+                    '            <span class="warning">Please chose a size!</span>' +
                     '            <div id="sizes" class="product-sizes">\n' +
                     "            </div>\n" +
                     '            <div id="colors" class="colors-available"></div>' +
@@ -212,9 +213,24 @@ function loadProductDetails(id) {
 
                 let addToCartBtn = document.getElementById('add-to-cart-btn')
                 addToCartBtn.onclick = function () {
-                    let chosenSize = document.querySelector('.size.chosen').textContent
+
+                    try {
+                        let chosenSize = document.querySelector('.size.chosen').textContent
+                        addToCart(product.id, chosenColor.colorName, chosenSize)
+                        $('.cart-notification').css('height', '50px')
+                        $('.cart-notification span').css('display', 'block')
+                        setTimeout(function () {
+                            $('.cart-notification').css('height', '0')
+                            $('.cart-notification span').css('display', 'none')
+                        }, 4000);
+                    }
+                    catch (err) {
+                        $('.warning').css('display', 'flex')
+                        $('#sizes').css('margin-top', '25px')
+                    }
+
                     console.log(chosenColor.colorName)
-                    addToCart(product.id, chosenColor.colorName, chosenSize)
+
                 }
             }
 

@@ -69,12 +69,12 @@ body {
   font-size: 45px;
   line-height: 55px;
   margin: 25px 0;
-  color: #1A1A1A;
+  color: #1a1a1a;
   font-weight: 500;
 }
 
 .single-product h4 {
-  color: #4D4F53;
+  color: #4d4f53;
   font-size: 35px;
   font-weight: bold;
   padding: 15px 0 15px;
@@ -95,6 +95,18 @@ body {
 
 .single-product p {
   color: #555;
+}
+
+.warning {
+  display: none;
+  margin-top: 25px;
+  background-color: #f9bebe7d;
+  color: #fa7777bf;
+  height: 30px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 10px 1px rgba(255, 232, 232, 0.412);
 }
 
 .product-sizes {
@@ -118,7 +130,7 @@ body {
   justify-content: center;
   border-radius: 20px;
   cursor: pointer;
-  transition: ease .3s;
+  transition: ease 0.3s;
 }
 
 .product-sizes span:hover {
@@ -132,7 +144,7 @@ body {
   background-color: white;
   outline: 3px solid #ff9a3b;
 }
- 
+
 .colors-available {
   display: flex;
   flex-flow: row wrap;
@@ -207,7 +219,7 @@ input[type="number"]::-webkit-outer-spin-button {
   border-radius: 50%;
   cursor: pointer;
   font-weight: 600;
-  transition: ease-in-out .3s;
+  transition: ease-in-out 0.3s;
 }
 
 .quantity-input span:hover {
@@ -240,7 +252,6 @@ input[type="number"]::-webkit-outer-spin-button {
 .btn:active {
   outline: 3px solid #ff9a3b;
   transform: scale(0.96);
-
 }
 
 .product-description {
@@ -368,7 +379,6 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 @media (max-width: 620px) {
-
   .container {
     text-align: center;
   }

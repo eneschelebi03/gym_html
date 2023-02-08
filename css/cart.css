@@ -384,6 +384,13 @@ input::-webkit-outer-spin-button {
   margin-bottom: 10px;
 }
 
+.product-name .color-visual {
+  height: 15px;
+  width: 15px;
+  margin: 0 10px 0 5px;
+  border-radius: 50%;
+}
+
 .card .detail .wrapper {
   display: flex;
   gap: 20px;

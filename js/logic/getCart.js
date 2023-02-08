@@ -2,18 +2,6 @@ $(document).ready(function () {
     getCart()
 });
 
-function addToCart(id, chosenColor, chosenSize) {
-    let email = window.sessionStorage.getItem('username')
-
-    $.ajax({
-        url: 'http://localhost:8080/cart/addProduct?' + $.param({ email: email }),
-        method: 'POST',
-        contentType: "application/json",
-        data: JSON.stringify({ wearId: id, color: chosenColor, size: chosenSize })
-        
-    });
-}
-
 function getCart() {
     let email = window.sessionStorage.getItem('username')
     let itemsPrice = 0;
@@ -39,7 +27,10 @@ function getCart() {
                 '                </div>\n' +
                 '\n' +
                 '                <div class="detail">\n' +
-                '                  <h4 class="product-name">' + cartItem.name + '</h4>\n' +
+                '                  <h4 class="product-name">' + cartItem.name + ' - ' + cartItem.color +
+                '                      <span id="colorCode-' + index + '" class="color-visual"></span>' +
+                '                         <br> ' + cartItem.size +
+                '                  </h4>\n' +
                 '\n' +
                 '                  <div class="wrapper">\n' +
                 '                    <div class="product-qty">\n' +

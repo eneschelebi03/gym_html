@@ -87,10 +87,11 @@ function loadProductDetails(id) {
                 productDetails.innerHTML = "<p>HOME / WEAR</p>\n" +
                     "            <h1>" + product.name + " - " + chosenColor.colorName + "</h1>\n" +
                     "            <h4>$" + chosenColor.price.toFixed(2) + "</h4>\n" +
-                    '            <span class="warning">Please chose a size!</span>' +
+                    '            <span id="size-warning" class="warning">Please choose a size!</span>' +
                     '            <div id="sizes" class="product-sizes">\n' +
                     "            </div>\n" +
                     '            <div id="colors" class="colors-available"></div>' +
+                    '            <span id="auth-warning" class="warning">Please register or sign in first!</span>' +
                     '            <div class="product-options">' +
                     '             <div class="quantity-input">' +
                     '              <span id="decrement" class="material-symbols-outlined">\n' +
@@ -132,6 +133,7 @@ function loadProductDetails(id) {
                     availableSizes.appendChild(sizeOption)
 
                     sizeOption.onclick = function () {
+                        $('#size-warning').css('display', 'none')
                         $('.size').removeClass('chosen')
                         sizeOption.classList.add('chosen')
                     }
@@ -217,15 +219,9 @@ function loadProductDetails(id) {
                     try {
                         let chosenSize = document.querySelector('.size.chosen').textContent
                         addToCart(product.id, chosenColor.colorName, chosenSize)
-                        $('.cart-notification').css('height', '50px')
-                        $('.cart-notification span').css('display', 'block')
-                        setTimeout(function () {
-                            $('.cart-notification').css('height', '0')
-                            $('.cart-notification span').css('display', 'none')
-                        }, 4000);
                     }
                     catch (err) {
-                        $('.warning').css('display', 'flex')
+                        $('#size-warning').css('display', 'flex')
                         $('#sizes').css('margin-top', '25px')
                     }
 
@@ -286,4 +282,20 @@ function displayRecommendedProducts(productId) {
 
     carouselContainer.appendChild(prorductsSection)
     mainContainer.append(carouselContainer)
+}
+
+function authWarning() {
+
+    $('#auth-warning').css('display', 'flex')
+
+}
+
+function cartItemAdded() {
+    $('.cart-notification').css('height', '50px')
+    $('.cart-notification span').css('display', 'block')
+
+    setTimeout(function () {
+        $('.cart-notification').css('height', '0')
+        $('.cart-notification span').css('display', 'none')
+    }, 4000);
 }

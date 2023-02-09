@@ -5,8 +5,13 @@ function addToCart(id, chosenColor, chosenSize) {
         url: 'http://localhost:8080/cart/addProduct?' + $.param({ email: email }),
         method: 'POST',
         contentType: "application/json",
-        data: JSON.stringify({ wearId: id, color: chosenColor, size: chosenSize })
-        
+        data: JSON.stringify({ wearId: id, color: chosenColor, size: chosenSize }),
+        success: function () {
+            cartItemAdded()
+        },
+        error: function () {
+            authWarning();
+        }
     });
 }
 

@@ -185,7 +185,6 @@ nav .nav-active {
   position: absolute;
   background: rebeccapurple;
   width: 300px;
-  height: 140px;
   text-align: center;
   margin-top: 10px;
   border-radius: 20px;
@@ -227,6 +226,10 @@ nav .nav-active {
 .user-wrapper:hover .pop-up {
   display: flex;
   height: 150px;
+}
+
+.user-wrapper:hover .pop-up:last-child {
+  height: 70px;
 }
 
 .user-wrapper:hover .pop-up button {

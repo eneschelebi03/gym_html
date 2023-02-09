@@ -13,12 +13,11 @@ loginBtn.onclick = function (event) {
     data: JSON.stringify({ username: username, password: password }),
     success: function (loginResponse) {
       if (!loginResponse.includes("ROLE_ANONYMOUS")) {
-      // if (loginResponse === "User signed-in successfully!.") {
-        // Login was successful, redirect to the home page
-        // getUserRoles();
+
         window.sessionStorage.setItem('roles', loginResponse);
         window.sessionStorage.setItem('username', username);
         window.location.href = "/html/index.html";
+        
       } else {
         // Login failed, do something here
       }
@@ -27,25 +26,5 @@ loginBtn.onclick = function (event) {
       // Handle error
     },
   });
-
-  
-
-  // $.ajax({
-  //   // headers: {
-  //   //     'Accept': 'application/json',
-  //   //     'Content-Type': 'application/json'
-  //   // },
-  //   type: "POST",
-  //   url: "http://localhost:8080/users/auth/login",
-  //   data: JSON.stringify({ "username": username, "password" : password }),
-  //   success: function () {
-  //     $.get("http://127.0.0.1:5500/html/index.html");
-  //   },
-  //   dataType: "application/json"
-  // });
-  // $.post('http://example.com/form.php', { category: 'client', type: 'premium' }).done(function (response) {
-  //   alert("success");
-  //   $("#mypar").html(response.amount);
-  // });
 };
 

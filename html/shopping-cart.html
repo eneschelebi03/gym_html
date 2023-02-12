@@ -21,7 +21,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
     />
 
-    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"
+    ></script>
 
     <title>Shopping cart</title>
   </head>
@@ -36,9 +40,9 @@
       <div class="item-flex">
         <section class="user-order-data">
           <section class="checkout">
-          <h2 class="section-heading">Shipping Details</h2>
-          <div class="address-form">
-            <!-- <div class="payment-method">
+            <h2 class="section-heading">Shipping Details</h2>
+            <div class="address-form">
+              <!-- <div class="payment-method">
               <button id="credit-card" class="method selected">
                 <ion-icon name="card-outline"></ion-icon>
                 <span>Credit Card</span>
@@ -59,173 +63,181 @@
               </button>
             </div> -->
 
-            <form action="#">
-              <div class="cardholder-name">
-                <label for="" class="label-default">*Full Name</label>
-                <input
-                  type="text"
-                  name="carholder-name"
-                  id="carholder-name"
-                  class="input-default"
-                />
-              </div>
+              <form id="address-form" action="#">
+                <div id="full-name" class="card-number">
+                  <label for="full-name" class="label-default"
+                    >*Full Name</label
+                  >
+                  <input
+                    type="text"
+                    name="full-name"
+                    id="full-name"
+                    class="input-default"
+                  />
+                </div>
 
-              <div class="card-number">
-                <label for="card-number" class="label-default"
-                  >*Post Code</label
-                >
-                <input
-                  type="text"
-                  name="card-number"
-                  id="card-number"
-                  class="input-default"
-                />
-              </div>
+                <div id="post-code" class="card-number">
+                  <label for="post-code" class="label-default"
+                    >*Post Code</label
+                  >
+                  <input
+                    type="text"
+                    name="post-code"
+                    id="post-code"
+                    class="input-default"
+                  />
+                </div>
 
-              <div class="card-number">
-                <label for="card-number" class="label-default"
-                  >*Address 1</label
-                >
-                <input
-                  type="text"
-                  name="card-number"
-                  id="card-number"
-                  class="input-default"
-                />
+                <div class="card-number">
+                  <label for="address" class="label-default"
+                    >*Address 1 - Street, Number, etc...</label
+                  >
+                  <input
+                    type="text"
+                    name="address"
+                    id="address"
+                    class="input-default"
+                  />
+                </div>
+                <div class="card-number">
+                  <label for="city" class="label-default">*City</label>
+                  <input
+                    type="text"
+                    name="city"
+                    id="city"
+                    class="input-default"
+                  />
+                </div>
+                <div class="card-number">
+                  <label for="country" class="label-default">*Country</label>
+                  <input
+                    type="text"
+                    name="country"
+                    id="country"
+                    class="input-default"
+                  />
+                </div>
+              </form>
+              <div class="warning">
+                <span>All the fields marked wtih '*' are required</span>
               </div>
-              <div class="card-number">
-                <label for="card-number" class="label-default"
-                  >*City</label
-                >
-                <input
-                  type="text"
-                  name="card-number"
-                  id="card-number"
-                  class="input-default"
-                />
-              </div>
-              <div class="card-number">
-                <label for="card-number" class="label-default"
-                  >*Country</label
-                >
-                <input
-                  type="text"
-                  name="card-number"
-                  id="card-number"
-                  class="input-default"
-                />
-              </div>
-
-              
-            </form>
-          </div>
-
-          <div class="pay-btn">
-            <button class="btn btn-primary">
-              <b>Save Address</b>
-            </button>
-          </div>
-          </section>
-          <section class="checkout">
-          <h2 class="section-heading">Payment Details</h2>
-          <div class="payment-form">
-            <div class="payment-method">
-              <button id="credit-card" class="method selected">
-                <ion-icon name="card-outline"></ion-icon>
-                <span>Credit Card</span>
-                <ion-icon
-                  id="credit-card-checkmark"
-                  class="checkmark fill"
-                  name="checkmark-circle"
-                ></ion-icon>
-              </button>
-              <button id="paypal" class="method">
-                <ion-icon name="logo-paypal"></ion-icon>
-                <span>Paypal</span>
-                <ion-icon
-                  id="paypal-checkmark"
-                  class="checkmark"
-                  name="checkmark-circle-outline"
-                ></ion-icon>
-              </button>
             </div>
 
-            <form action="#">
-              <div class="cardholder-name">
-                <label for="" class="label-default">Cardholder Name</label>
-                <input
-                  type="text"
-                  name="carholder-name"
-                  id="carholder-name"
-                  class="input-default"
-                />
+            <div class="pay-btn">
+              <button id="save-address-btn" class="btn btn-primary">
+                <b>Save Address</b>
+              </button>
+              <div class="address-saved">
+                <div id="address-message" class="success-message">
+                  <h3>Details Saved</h3>
+                </div>
+                <button id="edit-address-btn" class="btn btn-primary">
+                  <b>Edit Address</b>
+                </button>
+              </div>
+            </div>
+          </section>
+          <section class="checkout">
+            <h2 class="section-heading">Payment Details</h2>
+            <div class="payment-form">
+              <div class="payment-method">
+                <button id="credit-card" class="method selected">
+                  <ion-icon name="card-outline"></ion-icon>
+                  <span>Credit Card</span>
+                  <ion-icon
+                    id="credit-card-checkmark"
+                    class="checkmark fill"
+                    name="checkmark-circle"
+                  ></ion-icon>
+                </button>
+                <button id="paypal" class="method">
+                  <ion-icon name="logo-paypal"></ion-icon>
+                  <span>Paypal</span>
+                  <ion-icon
+                    id="paypal-checkmark"
+                    class="checkmark"
+                    name="checkmark-circle-outline"
+                  ></ion-icon>
+                </button>
               </div>
 
-              <div class="card-number">
-                <label for="card-number" class="label-default"
-                  >Card Number</label
-                >
-                <input
-                  type="text"
-                  name="card-number"
-                  id="card-number"
-                  class="input-default"
-                />
-              </div>
-
-              <div class="input-flex">
-                <div class="expire-date">
-                  <label for="expire-date" class="label-default">
-                    Expiration Date</label
+              <form action="#">
+                <div class="cardholder-name">
+                  <label for="cardholder-name" class="label-default"
+                    >Cardholder Name</label
                   >
+                  <input
+                    type="text"
+                    name="cardholder-name"
+                    id="cardholder-name"
+                    class="input-default"
+                  />
+                </div>
 
-                  <div class="input-flex">
+                <div class="card-number">
+                  <label for="card-number" class="label-default"
+                    >Card Number</label
+                  >
+                  <input
+                    type="text"
+                    name="card-number"
+                    id="card-number"
+                    class="input-default"
+                  />
+                </div>
+
+                <div class="input-flex">
+                  <div class="expire-date">
+                    <label for="expire-date" class="label-default">
+                      Expiration Date</label
+                    >
+
+                    <div class="input-flex">
+                      <input
+                        type="number"
+                        name="day"
+                        id="expire-date"
+                        placeholder="31"
+                        min="1"
+                        max="31"
+                        class="input-default"
+                      />
+                      /
+                      <input
+                        type="number"
+                        name="month"
+                        id="expire-date"
+                        placeholder="12"
+                        min="1"
+                        max="12"
+                        class="input-default"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="cvv">
+                    <label for="cvv" class="label-default">CVV</label>
                     <input
-                      type="number"
-                      name="day"
-                      id="expire-date"
-                      placeholder="31"
-                      min="1"
-                      max="31"
-                      class="input-default"
-                    />
-                    /
-                    <input
-                      type="number"
-                      name="month"
-                      id="expire-date"
-                      placeholder="12"
-                      min="1"
-                      max="12"
+                      type="text"
+                      name="cvv"
+                      id="cvv"
                       class="input-default"
                     />
                   </div>
                 </div>
+              </form>
+            </div>
 
-                <div class="cvv">
-                  <label for="cvv" class="label-default">CVV</label>
-                  <input
-                    type="text"
-                    name="cvv"
-                    id="cvv"
-                    class="input-default"
-                  />
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <div class="pay-btn">
-            <button class="btn btn-primary">
-              <b>Pay</b> $ <span id="payAmount">2.15</span>
-            </button>
-          </div>
+            <div class="pay-btn">
+              <button id="pay-btn" class="btn btn-primary">
+                <b>Pay</b> $ <span id="payAmount">2.15</span>
+              </button>
+            </div>
           </section>
         </section>
 
         <section class="cart">
-          
-          <div id="cart-items" class="cart-item-box"> 
+          <div id="cart-items" class="cart-item-box">
             <h2 class="section-heading">Order Summary</h2>
             <!-- <div class="product-card">
               <div class="card">
@@ -328,8 +340,8 @@
               </div>
             </div>
             <div class="total">
-                <span>Total:</span><span> $ <span id="total">0.00</span></span>
-              </div>
+              <span>Total:</span><span> $ <span id="total">0.00</span></span>
+            </div>
           </div>
         </section>
       </div>
@@ -382,6 +394,7 @@
     <!-- <script src="/js/design/cart.js"></script> -->
 
     <script src="/js/logic/getCart.js"></script>
+    <script src="/js/logic/order.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"

@@ -185,7 +185,7 @@ input::-webkit-outer-spin-button {
 .payment-form {
   margin-bottom: 40px;
   background: var(--color-white);
-  padding: 2.5rem 2.2rem; 
+  padding: 2.5rem 2.2rem;
   margin: 1.8rem;
   margin-top: 0.77rem;
   border-radius: var(--card-border-radius);
@@ -197,11 +197,38 @@ input::-webkit-outer-spin-button {
 
 .address-form {
   padding-bottom: 1.37rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.address-form form {
+  width: 100%;
 }
 
 .address-form:hover,
 .payment-form:hover {
   box-shadow: none;
+}
+
+.address-form input,
+.payment-form input {
+  padding: 10px 15px;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-5);
+}
+
+.warning {
+  display: none;
+  width: 80%;
+  margin-top: 5px;
+  background-color: #f9bebe7d;
+  color: #fa7777bf;
+  height: 30px;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
 }
 
 .payment-method {
@@ -262,12 +289,9 @@ input::-webkit-outer-spin-button {
   color: var(--davys-gray);
 }
 
-.address-form input,
-.payment-form input {
-  padding: 10px 15px;
-  font-size: var(--fs-16); 
-  font-weight: var(--fw-5);
-}
+/* .address-form input:focus {
+  outline:hsl(0, 77%, 60%) 1px solid;
+} */
 
 .cardholder-name,
 .card-number {
@@ -338,6 +362,39 @@ input::-webkit-outer-spin-button {
   margin-right: 10px;
 }
 
+/* #save-address-btn {
+  display: none
+} */
+
+.address-saved {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 30px;
+}
+
+.success-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111e81;
+  width: 100%;
+  border-radius: 30px;
+  background-color: var(--color-primary);
+  box-shadow: var(--box-shadow);
+  color: whitesmoke;
+} 
+
+.success-message h3 {
+  font-weight: 600;
+}
+
+#edit-address-btn {
+  width: 60%;
+}
+
 /* ================== CART ================== */
 
 .cart {
@@ -348,7 +405,7 @@ input::-webkit-outer-spin-button {
 }
 
 .cart-item-box {
-  margin-top: 0.33rem
+  margin-top: 0.33rem;
 }
 
 .product-card:not(:last-child) {
@@ -512,8 +569,6 @@ input::-webkit-outer-spin-button {
 .total:hover {
   box-shadow: none;
 }
-
-
 
 /* ================== RESPONSIVE ================== */
 

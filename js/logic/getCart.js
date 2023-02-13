@@ -28,9 +28,12 @@ function getCart() {
                 '\n' +
                 '                <div class="detail">\n' +
                 '                  <h4 class="product-name">' + cartItem.name + ' - ' + '<span id="color-name">' + cartItem.color + '</span>' +
-                '                      <span class="color-visual"></span>' +
-                '                         <br> <span id="size">' + cartItem.size +
-                '                  </span></h4>\n' +
+                '                      <span class="color-visual"></span>\n' +
+                '                      <span id="item-id" style="display: none;">' + cartItem.id + '</span>' +
+                '                      <br>\n' +
+                '                      <span id="size">' + cartItem.size + '</span>\n' +
+                // '                      <span id="categories" style="display: none;">' + cartItem.categories + '</span>\n' +
+                '                  </h4>\n' +
                 '\n' +
                 '                  <div class="wrapper">\n' +
                 '                    <div class="product-qty">\n' +

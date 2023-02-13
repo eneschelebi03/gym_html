@@ -12,7 +12,7 @@ editAddressBtn.onclick = function () {
     editDetails()
 }
 payBtn.onclick = function () {
-    getItemsCount()
+    submitOrder()
 }
 
 function saveDetails() {
@@ -27,7 +27,7 @@ function saveDetails() {
     ).reduce(
         (acc, input) => ({
             ...acc,
-            [input.id]: input.value,
+            [input.name]: input.value,
         }),
         {}
     );
@@ -68,10 +68,35 @@ function editDetails() {
 
 let cartItems;
 
-function getItemsCount() {
-    $('.card .detail').each(function () {
-        var count = $(this).find('quantity');
+function submitOrder() {
+    var cartItems = document.getElementsByClassName("detail");
 
-        console.log($(count))
-    })
+    var items = []
+    for (var i = 0; i < cartItems.length; i++) {
+
+        var item = cartItems[i];
+        var id = item.getElementsByTagName("span")[2].innerText;
+        var quantity = item.getElementsByTagName("span")[4].innerText;
+
+        console.log("Item id: " + id + ", Quantity: " + quantity);
+
+        items.push({ id: id, count: quantity });
+    }
+
+    let email = window.sessionStorage.getItem('username')
+
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:8080/order/new?" + $.param({ email: email }),
+        contentType: "application/json",
+        data: JSON.stringify({ items: items, details: details }),
+
+        success: function (response) {
+            console.log(response);
+            window.location.reload()
+        },
+        error: function (error) {
+            console.error("Error sending data: " + error.message); 
+        }
+    });
 }

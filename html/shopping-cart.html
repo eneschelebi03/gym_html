@@ -37,6 +37,13 @@
         cart
       </h1>
 
+      <div class="order-message-container">
+        <span class="material-symbols-outlined"> task_alt </span> 
+        <h2 id="successful-order" class="success-message">
+          Order successfully placed
+        </h2>
+      </div>
+
       <div class="item-flex">
         <section class="user-order-data">
           <section class="checkout">
@@ -322,7 +329,7 @@
                   id="discount-token"
                   class="input-default"
                 />
-                <button class="btn btn-outline">Apply</button>
+                <button id="apply-btn" class="btn btn-outline">Apply</button>
               </div>
             </div>
 
@@ -393,7 +400,7 @@
 
     <!-- <script src="/js/design/cart.js"></script> -->
 
-    <script src="/js/logic/getCart.js"></script>
+    <!-- <script src="/js/logic/getCart.js"></script> -->
     <script src="/js/logic/order.js"></script>
     <script
       type="module"

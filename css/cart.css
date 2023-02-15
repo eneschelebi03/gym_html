@@ -150,6 +150,8 @@ input::-webkit-outer-spin-button {
   display: flex;
   align-items: center;
   gap: 20px;
+  background: var(--color-background);
+  z-index: 3;
 }
 
 .heading span {
@@ -389,6 +391,35 @@ input::-webkit-outer-spin-button {
 
 .success-message h3 {
   font-weight: 600;
+}
+
+.order-message-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky; 
+  top: 30px;
+  z-index: 2;
+  gap: 10px;
+  transform: translateY(-100px);
+  transition: ease-in-out .4s;
+}
+
+#successful-order {
+  width: 60%;
+  box-shadow: none;
+  height: 0;
+  transition: ease-in-out .2s;
+  /* background-color: unset;
+  color: var(--color-primary); */
+}
+
+.order-message-container .material-symbols-outlined {
+  font-size: 40px;
+  color: var(--color-primary);
 }
 
 #edit-address-btn {

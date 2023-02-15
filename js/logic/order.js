@@ -1,6 +1,7 @@
 let saveAddressBtn = document.getElementById("save-address-btn");
 let editAddressBtn = document.getElementById("edit-address-btn");
 let payBtn = document.getElementById("pay-btn");
+let applyBtn = document.getElementById("apply-btn");
 let addressForm = document.getElementById("address-form");
 
 let details;
@@ -14,6 +15,12 @@ editAddressBtn.onclick = function () {
 payBtn.onclick = function () {
     submitOrder()
 }
+applyBtn.onclick = function () {
+    successfulOrder()
+}
+
+            
+
 
 function saveDetails() {
 
@@ -93,10 +100,16 @@ function submitOrder() {
 
         success: function (response) {
             console.log(response);
-            window.location.reload()
+            successfulOrder()
         },
         error: function (error) {
             console.error("Error sending data: " + error.message); 
         }
     });
+}
+
+function successfulOrder() {
+    $('#successful-order').css('height', '50px')
+    $('.order-message-container').css('transform', 'translateY(0)')
+    $('.item-flex').css('display', 'none')
 }

@@ -10,7 +10,6 @@ function getCart() {
 
         let cartItems = document.getElementById('cart-items')
 
-
         $.each(responseJson, function (index, cartItem) {
 
             let item = document.createElement('div')

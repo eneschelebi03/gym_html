@@ -84,7 +84,7 @@ function submitOrder() {
 
         console.log("Item id: " + id + ", Quantity: " + quantity);
 
-        items.push({ id: id, count: quantity });
+        items.push({ id: id, quantity: quantity });
     }
 
     let email = window.sessionStorage.getItem('username')

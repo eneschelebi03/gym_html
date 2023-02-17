@@ -218,7 +218,8 @@ function loadProductDetails(id) {
 
                     try {
                         let chosenSize = document.querySelector('.size.chosen').textContent
-                        addToCart(product.id, chosenColor.colorName, chosenSize)
+                        let quantity = document.getElementById('quantity').value
+                        addToCart(product.id, chosenColor.colorName, chosenSize, quantity)
                     }
                     catch (err) {
                         $('#size-warning').css('display', 'flex')

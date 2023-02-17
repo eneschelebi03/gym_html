@@ -39,13 +39,13 @@ function getCart() {
                 '                      <button id="decrement">\n' +
                 '                        <ion-icon name="remove-outline"></ion-icon>\n' +
                 '                      </button>\n' +
-                '                      <span id="quantity">1</span>\n' +
+                '                      <span id="quantity">' + cartItem.quantity + '</span>\n' +
                 '                      <button id="increment">\n' +
                 '                        <ion-icon name="add-outline"></ion-icon>\n' +
                 '                      </button>\n' +
                 '                    </div>\n' +
                 '\n' +
-                '                    <div class="price">$ <span id="price">' + cartItem.price + '</span></div>\n' +
+                '                    <div class="price">$ <span id="price">' + cartItem.price.toFixed(2) + '</span></div>\n' +
                 '                  </div>\n' +
                 '                </div>\n' +
                 '\n' +

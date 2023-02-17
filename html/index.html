@@ -8,7 +8,7 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" href="/css/style.css" />
+    <link id="product-styling" rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/header.css" />
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
@@ -32,7 +32,6 @@
     <!-- Header -->
     <script>HTMLImporter.import("/html/fragments/header.html")</script>
 
-    <!-- Carousel Main -->
     <div id="offers" class="img-slider">
       <!--    <div class="slide">-->
       <!--        <img src="/pictures/gym5.jpg" alt=""/>-->
@@ -52,9 +51,11 @@
         <div class="crsl-btn"></div>
       </div>
     </div>
-
+   
     <!-- Carousel Supplements -->
-    <main>
+    <main id="main-container">
+       <!-- Carousel Main -->
+
       <header>
         <p>
           <span class="supp-mover">&#139;</span>
@@ -126,7 +127,7 @@
     </main>
 
     <!-- Article carousel -->
-    <div class="article-slider">
+    <div id="articles" class="article-slider">
       <div class="article-slide-track">
         <div class="article-slide">
           <img src="/pictures/gym2.jpg" alt="" />
@@ -362,9 +363,12 @@
       crossorigin="anonymous"
     ></script>
 
+    <script src="/js/helpers/sortSizes.js"></script>
+
     <script src="/js/logic/carouselProducts.js"></script>
     <script src="/js/logic/homeDataLoad.js"></script>
     <script src="/js/logic/carouselAction.js"></script>
+    <script src="/js/logic/productDetails.js"></script>
 
     <script
       src="https://kit.fontawesome.com/6009e58750.js"

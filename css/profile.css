@@ -4,6 +4,25 @@
 /* rgb(232, 150, 62); */
 /* rgb(34, 35, 36); */
 
+:root {
+  --header-shadow: 0 10px 35px rgb(11, 8, 6);
+
+  --header-padding: 10px 20px;
+  --card-padding: 1.8rem;
+  --padding-1: 0.7rem 0.8rem;
+
+  --card-border-radius: 2rem;
+  --border-radius-1: 50px;
+  --border-radius-2: 1.2rem;
+
+  --color-header-background-dark: rgb(40, 40, 43);
+  --color-header-backgraound-orange: rgb(232, 150, 62);
+  --color-info-light: #dce1eb;
+  --color-info-dark: #88878f92;
+  --color-white: whitesmoke;
+
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -22,71 +41,82 @@ body {
   font-family: "Poppins" sans-serif;
   margin-bottom: 90px;
 }
-  
+
 .container-header {
   margin: 60px 0 80px;
   font-size: 30px;
   font-family: "Cormorant SC", serif;
   text-transform: uppercase;
   letter-spacing: 6px;
-  color: rgb(232, 150, 62);
-  border-bottom: 3px solid rgb(255, 173, 85);
+  color: var(--color-white);
+  box-shadow: var(--header-shadow);
+  background-color: var(--color-header-backgraound-orange);
   width: 90%;
   text-align: center;
+  border-radius: var(--border-radius-1);
+  padding: 1rem;
 }
 
-.user-info-wrapper,
-.user-address-wrapper {
+.details-card {
   width: 80%;
   height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 30px;
-  color: rgb(255, 173, 85);
+  color: var(--color-white);
 }
 
-.user-info-header,
-.address-header {
-  font-size: 22px;
-  margin: 50px 0;
-  letter-spacing: 2px;
-  border-bottom: 2px solid rgb(232, 150, 62);
+.details-card:not(:last-child) {
+  margin-bottom: 70px;
+}
+
+.card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-header-backgraound-orange);
   width: 40%;
   text-align: center;
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: var(--color-white);
+  border-radius: var(--border-radius-2) var(--border-radius-2) 0 0;
+  padding: var(--padding-1);
 }
 
-.user-info,
-.addresses-info {
+.card-info-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 70%;
+  background-color: var(--color-header-background-dark);
+  box-shadow: var(--header-shadow);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  transition: all ease-in-out .2s 
 }
 
-.user-info i,
-.addresses-info i {
-  margin-right: 12px;
-}
-
-.contact-info,
-.paying-address,
-.shipping-address {
+.card-info {
   line-height: 25px;
-  margin-bottom: 35px;
 }
 
-.contact-info h2,
-.paying-address h3,
-.shipping-address h3 {
-  text-decoration: solid underline;
+.card-info h2 {
   margin-bottom: 20px;
+  width: 100%;
+  /* text-align: center; */
+  font-size: 22px;
+  border-bottom: 1px solid var(--color-info-dark);
+  padding-bottom: 15px;
   text-align: center;
 }
 
-.contact-info p,
-.addresses-info p {
+.card-info p {
   font-size: 17px;
   margin: 5px 0;
+}
+
+.card-info i {
+  margin-right: 12px;
+  color:  rgb(255, 173, 85);
 }
 
 .edit-links {
@@ -108,31 +138,6 @@ body {
 .edit-links a:hover {
   background: whitesmoke;
   color: rgb(232, 150, 62);
-}
-
-.user-activity-info {
-  line-height: 25px;
-  margin-bottom: 35px;
-}
-
-.user-orders-info {
-  margin-bottom: 20px;
-}
-
-.user-activity-info h3 {
-  text-transform: capitalize;
-  text-decoration: underline;
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-
-.user-activity-info p {
-  font-size: 17px;
-}
-
-.user-address-wrapper {
-  width: 70%;
 }
 
 .profile-picture {
@@ -234,8 +239,11 @@ body {
   color: rgb(34, 35, 36);
 }
 
-
 @media (max-width: 768px) {
+  main {
+    margin-top: 6vh;
+  }
+
   .footer-col {
     width: 50%;
     margin-bottom: 30px;
@@ -253,37 +261,27 @@ body {
 }
 
 @media (max-width: 980px) {
-  .user-info,
-  .addresses-info {
+  .card-info-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+  }
+
+  .card-info {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .user-info-header,
-.address-header {
-  width: 70%;
+  .edit-links {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .edit-links a {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 17px;
+  }
 }
 
-.contact-info,
-.user-orders-info,
-.user-points-info,
-.paying-address,
-.shipping-address {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 0;
-  margin-bottom: 60px;
-}
-
-.edit-links {
-  display: flex;
-  flex-direction: column;
-}
-
-.edit-links a {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 17px;
-}
-}

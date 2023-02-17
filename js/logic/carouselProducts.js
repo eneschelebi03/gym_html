@@ -63,7 +63,21 @@ function createProducts(carousel, responseJson, productClass) {
         carousel.append(carouselProduct)
 
         carouselProduct.onclick = function () {
+            $('#articles').css('display', 'none')
+            $('#offers').css('display', 'none')
+            addStyleLink()
+
             loadProductDetails(product.id)
         }
     })
+}
+
+function addStyleLink() {
+
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = '/css/carousel.css';
+
+    document.getElementsByTagName('HEAD')[0].appendChild(link);
 }

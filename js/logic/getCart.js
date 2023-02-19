@@ -1,3 +1,6 @@
+const itemsContainer = document.getElementById('items-container')
+const currentHtml = itemsContainer.outerHTML;
+
 $(document).ready(function () {
     getCart()
 });
@@ -8,7 +11,46 @@ function getCart() {
 
     $.get("http://localhost:8080/cart/products?" + $.param({ email: email }), function (responseJson) {
 
+
+        if (Object.keys(responseJson).length === 0) {
+
+            $('#container').css('align-items', 'center')
+
+            itemsContainer.remove()
+
+            document.querySelector('.order-message-container').innerHTML = '<span class="material-symbols-outlined">' +
+                '           production_quantity_limits' +
+                '        </span> \n' +
+                '        <h2 id="successful-order" class="success-message">\n' +
+                '          Cart is empty!\n' +
+                '        </h2>'
+
+            setTimeout(function () {
+                $('#successful-order').css('height', '50px')
+                $('.order-message-container').css('height', '200px')
+                $('.order-message-container').css('margin-top', '100px')
+                $('#successful-order').css('font-size', '35px')
+                $('.order-message-container .material-symbols-outlined').css('font-size', '70px')
+            }, 100);
+
+
+            let continueBtn = document.createElement('div')
+            continueBtn.classList.add('continue-btn')
+            continueBtn.innerText = 'Back to the shop'
+            continueBtn.onclick = function () {
+                window.location.href = '/html/index.html'
+            }
+
+            container.append(continueBtn)
+
+        } else {
+            itemsContainer.innerHTML = currentHtml
+            document.body.appendChild(document.createElement('script')).src = '/js/logic/order.js';
+        }
+
         let cartItems = document.getElementById('cart-items')
+
+
 
         $.each(responseJson, function (index, cartItem) {
 
@@ -53,10 +95,10 @@ function getCart() {
                 '                  <ion-icon name="close-outline"></ion-icon>\n' +
                 '                </button>\n' +
                 '              </div>'
-            
+
             cartItems.append(item)
             $('.color-visual').eq(index).css('background-color', cartItem.colorCode)
-            
+
 
             let removeBtn = document.getElementById('product-close-btn-' + index);
             removeBtn.onclick = function () {

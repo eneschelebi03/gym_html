@@ -17,6 +17,9 @@
   --color-dark-variant: #677483;
   --color-background: #f6f6f9;
   --color-shadow: rgba(182, 182, 182, 0.167);
+  --color-grey: #7a797d63;
+  --color-grey-dark: #7e7e7fc4;
+  --color-green: #22b573;
 
   --card-border-radius: 2rem;
   --border-radius-1: 0.4rem;
@@ -27,6 +30,8 @@
   -padding-1: 1.2rem;
 
   --box-shadow: 0 2rem 3rem var(--color-light);
+
+  --transitionSpeed: 200ms;
 }
 
 .dark-theme-variables {
@@ -220,6 +225,75 @@ input::-webkit-outer-spin-button {
   font-size: var(--fs-16);
   font-weight: var(--fw-5);
 }
+
+/* <=================== CHECKBOX ===================> */
+.checkbox {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 35px;
+}
+
+.checkbox span {
+  overflow: hidden;
+  color: var(--color-grey-dark);
+  background: linear-gradient(to right, var(--color-primary), var(--color-primary) 50%, var(--color-grey-dark) 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+}
+
+
+input[type="checkbox"] + label {
+  width: 30px;
+  height: 30px;
+  border: 5px solid var(--color-grey);
+  border-radius: 100%;
+  /* top: 50%;
+  left: 10%; */
+  transform: translate(0%, 0%);
+  transition: all ease-out var(--transitionSpeed);
+  text-indent: 90px;
+  /* font: normal normal 30px/60px "Helvetica"; */
+  white-space: nowrap;
+  color: var(--color-grey);
+  user-select: none;
+}
+
+input[type="checkbox"] + label:after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 12.5px;
+    border-bottom: 5px solid var(--color-primary);
+    border-left: 5px solid var(--color-primary);
+    top: 25%;
+    left: 50%;
+    transform-origin: bottom left;
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: all ease-out var(--transitionSpeed);
+  }
+
+input[type="checkbox"]:checked + label {
+  border: 5px solid var(--color-primary);
+}
+
+input[type="checkbox"]:checked + label:after {
+    opacity: 1;
+    width: 35px;
+  }
+
+#chk {
+  display: none;
+}
+
+/* --------------------------------- */
 
 .warning {
   display: none;

@@ -1,5 +1,30 @@
-let userIcon = document.getElementById('user-icon')
+$(document).ready(function () {
+    loadUserDetails();
+});
 
-userIcon.onclick = function () {
-    window.location.href = '/html/profile.html'
+function loadUserDetails() {
+    let email = window.sessionStorage.getItem("username");
+
+    $.get(
+        "http://localhost:8080/users/user/details?" + $.param({ email: email }),
+        function (userDetails) {
+            let username = document.getElementById("username");
+            let email = document.getElementById("email");
+            let orders = document.getElementById("orders");
+            let shipping = document.getElementById("shipping-address");
+
+            username.innerText = userDetails.username;
+            email.innerText = userDetails.email;
+            orders.innerText = userDetails.orders;
+
+            let city = userDetails.address.postCode + ' ' + userDetails.address.city
+            let shippnigAddress = [userDetails.address.country, city, userDetails.address.address].join(', ')
+
+            shipping.innerText = shippnigAddress;
+        }
+    )
+        .done(function () { })
+        .fail(function () {
+            alert("failed");
+        });
 }

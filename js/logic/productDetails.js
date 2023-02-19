@@ -224,6 +224,7 @@ function loadProductDetails(id) {
                     catch (err) {
                         $('#size-warning').css('display', 'flex')
                         $('#sizes').css('margin-top', '25px')
+                        console.log(err)
                     }
 
                     console.log(chosenColor.colorName)

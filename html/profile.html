@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,122 +8,144 @@
     <link rel="stylesheet" href="/css/header.css" />
     <link rel="stylesheet" href="/css/profile.css" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
 
     <script src="/js/helpers/HtmlImporter.js"></script>
 
-
     <title>Document</title>
-</head>
-<body>
+  </head>
 
-    <script>HTMLImporter.import("/html/fragments/header.html")</script>
+  <body>
+    <script>
+      HTMLImporter.import("/html/fragments/header.html");
+    </script>
 
     <main>
-        <div class="main-profile-container">
-            <div class="container-header">
-                <h2>My profile</h2>
-            </div>
-            <div class="details-card">
-                <picture class="profile-picture">
-                    <img src="/pictures/male-gym-avatar.png" alt="">
-                </picture>
-                
-                <div class="card-heading">
-                    <h2>User Details</h2>
-                </div>
-                <div class="card-info-container">
-                    <div class="card-info">
-                        <h2>Contacts information</h2>
-                        <p class="user-name"><i class="fa fa-user"></i>ShadowWalker877</p>
-                        <p class="email"><i class="fa fa-at"></i>liontiger1523@mail.bg</p>
-                        <div class="edit-links">
-                            <a href="#">Edit</a>
-                            <a href="#">Change password</a>
-                        </div>
-                    </div>
-                        <div class="card-info">
-                            <h2>Orders</h2>
-                            <p><i class="fa fa-shipping-fast"></i>Number of orders: 10</p>
-                        </div>
-                </div>
-            </div>
-            <div class="details-card">
-                <div class="card-heading">
-                    <h2>Addresses</h2>
-                </div>
-                <div class="card-info-container">
-                    <div class="card-info">
-                        <h2>Default paying address</h2>
-                        <p class="address-text"><i class="fa fa-credit-card"></i>BGN 934875t91340</p>
-                        <div class="edit-links">
-                            <a href="#">Edit paying address</a>
-                        </div>
-                    </div>
-                    <div class="card-info">
-                        <h2>Default paying address</h2>
-                        <p class="address-text"><i class="fa fa-location-pin"></i>Bulgaria, Madan, Yanovksa 48</p>
-                        <div class="edit-links">
-                            <a href="#">Edit shipping address</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="main-profile-container">
+        <div class="container-header">
+          <h2>My profile</h2>
         </div>
+        <div class="details-card">
+          <picture class="profile-picture">
+            <img src="/pictures/male-gym-avatar.png" alt="" />
+          </picture>
+
+          <div class="card-heading">
+            <h2>User Details</h2>
+          </div>
+          <div class="card-info-container">
+            <div class="card-info">
+              <h2>Contacts information</h2>
+              <p class="user-name">
+                <i class="fa fa-user"></i>
+                <span id="username"></span>
+              </p>
+              <p class="email">
+                <i class="fa fa-at"></i>
+                <span id="email"></span>
+
+              </p>
+              <div class="edit-links">
+                <a href="#">Edit</a>
+                <a href="#">Change password</a>
+              </div>
+            </div>
+            <div class="card-info">
+              <h2>Orders</h2>
+              <p>
+                <i class="fa fa-shipping-fast"></i>
+                Number of orders: <span id="orders"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="details-card">
+          <div class="card-heading">
+            <h2>Addresses</h2>
+          </div>
+          <div class="card-info-container">
+            <div class="card-info">
+              <h2>Default paying address</h2>
+              <p class="address-text">
+                <i class="fa fa-credit-card"></i>
+                No information
+              </p>
+              <div class="edit-links">
+                <a href="#">Edit paying address</a>
+              </div>
+            </div>
+            <div class="card-info">
+              <h2>Default shipping address</h2>
+              <p class="address-text">
+                <i class="fa fa-location-pin"></i>
+                <span id="shipping-address">No information</span>
+              </p>
+              <div class="edit-links">
+                <a href="#">Edit shipping address</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>company</h4>
-                    <ul>
-                        <li><a href="#">about us</a></li>
-                        <li><a href="#">our services</a></li>
-                        <li><a href="#">privacy policy</a></li>
-                        <li><a href="#">affiliate program</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>get help</h4>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">shipping</a></li>
-                        <li><a href="#">returns</a></li>
-                        <li><a href="#">order status</a></li>
-                        <li><a href="#">payment options</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>online shop</h4>
-                    <ul>
-                        <li><a href="#">watch</a></li>
-                        <li><a href="#">bag</a></li>
-                        <li><a href="#">shoes</a></li>
-                        <li><a href="#">dress</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>follow us</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>company</h4>
+            <ul>
+              <li><a href="#">about us</a></li>
+              <li><a href="#">our services</a></li>
+              <li><a href="#">privacy policy</a></li>
+              <li><a href="#">affiliate program</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>get help</h4>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">shipping</a></li>
+              <li><a href="#">returns</a></li>
+              <li><a href="#">order status</a></li>
+              <li><a href="#">payment options</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>online shop</h4>
+            <ul>
+              <li><a href="#">watch</a></li>
+              <li><a href="#">bag</a></li>
+              <li><a href="#">shoes</a></li>
+              <li><a href="#">dress</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>follow us</h4>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
+          </div>
         </div>
+      </div>
     </footer>
 
-        <script
+    <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="/js/design/app.js"></script> -->
 
-</body>
-
+    <script src="/js/logic/userDetails.js"></script>
+  </body>
 </html>

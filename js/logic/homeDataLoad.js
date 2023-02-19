@@ -35,10 +35,3 @@ function loadMainCarousel() {
         alert('failed')
     })
 }
-
-
-
-
-
-
-

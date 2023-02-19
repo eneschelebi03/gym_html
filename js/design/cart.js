@@ -71,12 +71,12 @@ var methodChoose = function (method) {
       checkmark.classList.remove("fill");
       checkmark.setAttribute("name", "checkmark-circle-outline");
     });
-  
+
     payMethods[method].classList.add("selected");
-    
+
     checkmarks[method].classList.add("fill");
     checkmarks[method].setAttribute("name", "checkmark-circle");
-    
+
   });
 };
 
@@ -85,3 +85,15 @@ payMethods.forEach((method, i) => {
     methodChoose(i);
   });
 });
+
+let checkbox = document.getElementById('chk')
+
+checkbox.onchange = function () {
+  if (document.getElementById('chk').checked) {
+    $('.checkbox span').css('background-position', '0 100%')
+  } else {
+    $('.checkbox span').css('background-position', '100%')
+
+  }
+}
+

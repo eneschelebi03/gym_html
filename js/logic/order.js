@@ -49,12 +49,21 @@ function saveDetails() {
         });
 
     } else {
+
+        if (document.getElementById('chk').checked) {
+            address['saveAsPersonal'] = true
+        } else {
+            address['saveAsPersonal'] = false
+        }
+
         details = address;
 
         console.log(details)
 
         document.querySelectorAll("#address-form input")
             .forEach((input) => input.setAttribute("readonly", true));
+        
+        $("#chk").attr("disabled", true);
 
         saveAddressBtn.style.display = "none";
         $(".address-saved").css("display", "flex");
@@ -63,6 +72,7 @@ function saveDetails() {
 
 function editDetails() {
     $("#address-form input").removeAttr("readonly");
+    $("#chk").removeAttr("disabled");
 
     saveAddressBtn.style.display = "inline-block";
     $(".address-saved").css("display", "none");

@@ -188,8 +188,11 @@ input::-webkit-outer-spin-button {
   font-weight: var(--fw-5);
 }
 
-.address-form,
-.payment-form {
+.details-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 40px;
   background: var(--color-white);
   padding: 2.5rem 2.2rem;
@@ -202,25 +205,19 @@ input::-webkit-outer-spin-button {
   width: auto;
 }
 
-.address-form {
-  padding-bottom: 1.37rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.address-form form {
+.details-form form {
   width: 100%;
 }
 
-.address-form:hover,
-.payment-form:hover {
+#address-form-container {
+  padding-bottom: 1.75rem;
+}
+
+.details-form:hover {
   box-shadow: none;
 }
 
-.address-form input,
-.payment-form input {
+.details-form input {
   padding: 10px 15px;
   font-size: var(--fs-16);
   font-weight: var(--fw-5);
@@ -298,7 +295,7 @@ input[type="checkbox"]:checked + label:after {
 .warning {
   display: none;
   width: 80%;
-  margin-top: 5px;
+  margin-top: 22px;
   background-color: #f9bebe7d;
   color: #fa7777bf;
   height: 30px;
@@ -307,9 +304,14 @@ input[type="checkbox"]:checked + label:after {
   justify-content: center;
 }
 
+#payment-form-container .warning {
+  margin-top: 35px;
+}
+
 .payment-method {
   display: flex;
   align-items: center;
+  width: 100%;
   gap: 30px;
   margin-bottom: 40px;
 }

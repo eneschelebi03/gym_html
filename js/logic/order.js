@@ -1,3 +1,5 @@
+let addressSaved = false
+
 let saveAddressBtn = document.getElementById("save-address-btn");
 let editAddressBtn = document.getElementById("edit-address-btn");
 let payBtn = document.getElementById("pay-btn");
@@ -13,18 +15,27 @@ editAddressBtn.onclick = function () {
     editDetails()
 }
 payBtn.onclick = function () {
-    submitOrder()
+
+    if (addressSaved) {
+
+        if (filledPayingDetails()) {
+
+            submitOrder()
+
+        } 
+
+    } else {
+
+        saveDetails()
+
+    }
 }
-
-
-
 
 function saveDetails() {
 
     $("#address-form input").removeAttr("readonly");
-
-    $(".address-form input").css("outline", "none");
-    $(".address-form .warning").css("display", "none");
+    $("#address-form-container input").css("outline", "none");
+    $("#address-form-container .warning").css("display", "none");
 
     let address = Array.from(
         document.querySelectorAll("#address-form input")
@@ -41,10 +52,10 @@ function saveDetails() {
         Object.values(address).forEach((value, index) => {
             console.log(index, value);
             if (value === "") {
-                $(".address-form input")
+                $("#address-form-container input")
                     .eq(index)
                     .css("outline", "hsl(0, 77%, 60%) 2px solid");
-                $(".address-form .warning").css("display", "flex");
+                $("#address-form-container .warning").css("display", "flex");
             }
         });
 
@@ -62,11 +73,13 @@ function saveDetails() {
 
         document.querySelectorAll("#address-form input")
             .forEach((input) => input.setAttribute("readonly", true));
-        
+
         $("#chk").attr("disabled", true);
 
         saveAddressBtn.style.display = "none";
         $(".address-saved").css("display", "flex");
+
+        addressSaved = true
     }
 };
 
@@ -76,6 +89,45 @@ function editDetails() {
 
     saveAddressBtn.style.display = "inline-block";
     $(".address-saved").css("display", "none");
+
+    addressSaved = false
+}
+
+function filledPayingDetails() {
+
+    $("#payment-form input").removeAttr("readonly");
+    $("#payment-form-container input").css("outline", "none");
+    $("#payment-form-container .warning").css("display", "none");
+
+    let payDets = Array.from(
+        document.querySelectorAll("#payment-form input")
+    ).reduce(
+        (acc, input) => ({
+            ...acc,
+            [input.name]: input.value,
+        }),
+        {}
+    );
+
+    if (Object.values(payDets).includes("")) {
+
+        Object.values(payDets).forEach((value, index) => {
+            console.log(index, value);
+            if (value === "") {
+                $("#payment-form-container input")
+                    .eq(index)
+                    .css("outline", "hsl(0, 77%, 60%) 2px solid");
+                $("#payment-form-container .warning").css("display", "flex");
+            }
+        });
+
+        return false
+
+    } else {
+        console.log(payDets)
+
+        return true
+    }
 }
 
 
@@ -107,7 +159,7 @@ function submitOrder() {
 
         success: function (response) {
             console.log(response);
-            
+
             successfulOrder()
         },
         error: function (error) {
@@ -219,4 +271,52 @@ function getOrderDetails() {
     }).fail(function () {
         alert('failed')
     })
+}
+
+
+function formatCardNumber(cardNumberInput) {
+
+    // Get the current value of the input field
+    let cardNumber = cardNumberInput.value;
+
+    // Remove any non-digit characters from the input
+    cardNumber = cardNumber.replace(/\D/g, '');
+
+    // Add a space after every 4 digits
+    cardNumber = cardNumber.replace(/(\d{4})(?=\d)/g, '$1 ');
+
+    // Update the value of the input field
+    cardNumberInput.value = cardNumber;
+
+}
+
+function validateExpiryDate(input) {
+    let value = input.value.trim();
+
+    var max
+    if (input.name === 'month') {
+        max = 12
+    } else {
+        const now = new Date();
+        const currentYear = now.getFullYear().toString().slice(-2);
+        max = parseInt(currentYear) + 10
+    }
+
+    if (parseInt(value) > max) {
+        input.value = max;
+    }
+
+    var min = 1
+
+    if (parseInt(value) < min) {
+        input.value = min;
+    }
+}
+
+function validateCVV(input) {
+    
+    const maxLength = 4;
+    if (input.value.length > maxLength) {
+        input.value = input.value.slice(0, maxLength);
+    }
 }

@@ -38,7 +38,7 @@
       </h1>
 
       <div class="order-message-container">
-        <span class="material-symbols-outlined"> task_alt </span> 
+        <span class="material-symbols-outlined"> task_alt </span>
         <h2 id="successful-order" class="success-message">
           Order successfully placed
         </h2>
@@ -48,7 +48,7 @@
         <section class="user-order-data">
           <section class="checkout">
             <h2 class="section-heading">Shipping Details</h2>
-            <div class="address-form">
+            <div id="address-form-container" class="details-form">
               <!-- <div class="payment-method">
               <button id="credit-card" class="method selected">
                 <ion-icon name="card-outline"></ion-icon>
@@ -125,7 +125,7 @@
                   />
                 </div>
                 <div class="checkbox">
-                  <input name="saveAsPersonal" type="checkbox" id="chk"/>
+                  <input name="saveAsPersonal" type="checkbox" id="chk" />
                   <label for="chk"></label>
                   <span>Save address as personal</span>
                 </div>
@@ -151,7 +151,7 @@
           </section>
           <section class="checkout">
             <h2 class="section-heading">Payment Details</h2>
-            <div class="payment-form">
+            <div id="payment-form-container" class="details-form">
               <div class="payment-method">
                 <button id="credit-card" class="method selected">
                   <ion-icon name="card-outline"></ion-icon>
@@ -173,7 +173,7 @@
                 </button>
               </div>
 
-              <form action="#">
+              <form id="payment-form" action="#">
                 <div class="cardholder-name">
                   <label for="cardholder-name" class="label-default"
                     >Cardholder Name</label
@@ -192,9 +192,13 @@
                   >
                   <input
                     type="text"
-                    name="card-number"
                     id="card-number"
+                    name="card-number"
                     class="input-default"
+                    placeholder="XXXX XXXX XXXX XXXX"
+                    oninput="formatCardNumber(this)"
+                    maxlength="19"
+                    required
                   />
                 </div>
 
@@ -207,22 +211,27 @@
                     <div class="input-flex">
                       <input
                         type="number"
-                        name="day"
+                        name="month"
                         id="expire-date"
-                        placeholder="31"
-                        min="1"
-                        max="31"
                         class="input-default"
+                        min="1"
+                        max="12"
+                        maxlength="2"
+                        placeholder="MM"
+                        oninput="validateExpiryDate(this)"
+                        required
                       />
                       /
                       <input
                         type="number"
-                        name="month"
+                        name="year"
                         id="expire-date"
-                        placeholder="12"
-                        min="1"
-                        max="12"
                         class="input-default"
+                        max="50"
+                        maxlength="2"
+                        placeholder="YY"
+                        oninput="validateExpiryDate(this)"
+                        required
                       />
                     </div>
                   </div>
@@ -234,10 +243,15 @@
                       name="cvv"
                       id="cvv"
                       class="input-default"
+                      maxlength="4"
+                      oninput="validateCVV(this)"
                     />
                   </div>
                 </div>
               </form>
+              <div class="warning">
+                <span>All the fields are required</span>
+              </div>
             </div>
 
             <div class="pay-btn">

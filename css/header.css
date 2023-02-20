@@ -245,7 +245,7 @@ nav .nav-active {
   gap: 30px;
 }
 
-.basket-wrapper .cart-notification {
+.header-notification {
   display: flex;
   cursor: auto;
   align-items: center;
@@ -260,11 +260,10 @@ nav .nav-active {
   box-shadow: 0 10px 20px rgb(11 8 6);
   z-index: 4;
   transition: all ease 0.3s;
-  /* display: none; */
   height: 0;
 }
 
-.basket-wrapper .cart-notification span {
+.header-notification span {
   display: none;
 }
 

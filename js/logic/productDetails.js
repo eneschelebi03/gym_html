@@ -291,13 +291,3 @@ function authWarning() {
     $('#auth-warning').css('display', 'flex')
 
 }
-
-function cartItemAdded() {
-    $('.cart-notification').css('height', '50px')
-    $('.cart-notification span').css('display', 'block')
-
-    setTimeout(function () {
-        $('.cart-notification').css('height', '0')
-        $('.cart-notification span').css('display', 'none')
-    }, 4000);
-}

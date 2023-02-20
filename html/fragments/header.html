@@ -16,7 +16,7 @@
   </div>
   <div class="user-tools">
     <div class="user-wrapper">
-      <i id="user-icon" onclick="location.href='/html/profile.html'" class="fa-solid fa-user fa-lg user-icon"></i>
+      <i id="user-icon" class="fa-solid fa-user fa-lg user-icon"  onclick="showUserDetails()"></i>
       <ul id="auth-options" class="pop-up">
         <li>
           <button id="login-btn" onclick="location.href='/html/login.html'">Login</button>
@@ -34,7 +34,7 @@
     </div>
     <div class="basket-wrapper">
       <i onclick="location.href='/html/shopping-cart.html'" class="fa-solid fa-basket-shopping fa-lg basket-icon"></i>
-      <div class="cart-notification">
+      <div id="cart-notification" class="header-notification">
         <span>Product added!</span>
       </div>
     </div>
@@ -55,6 +55,8 @@
     <li><a href="#">Work</a></li>
 
     <li><a href="#">Projects</a></li>
+
+    <li id="admin-panel"><a href="/html/admin-dashboard.html">Admin Panel</a></li>
   </ul>
 </nav>
 

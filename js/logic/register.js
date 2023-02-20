@@ -1,7 +1,7 @@
-let loginBtn = document.getElementById("reg-btn");
+let regBtn = document.getElementById("reg-btn");
 
 
-loginBtn.onclick = function (event) {
+regBtn.onclick = function (event) {
     event.preventDefault();
 
     let username = document.getElementById("reg-username").value;

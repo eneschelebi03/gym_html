@@ -56,7 +56,7 @@ html {
 }
 
 body {
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
   font-family: "Poppins" sans-serif;
   font-size: 0.88rem;
@@ -145,6 +145,8 @@ b {
 
 aside {
   height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 aside .top {
@@ -359,7 +361,7 @@ main .insights small {
 
 /* ================== RECENT ORDERS ================== */
 main .recent-orders {
-  margin-top: 2rem;
+  margin: 2rem 0;
 }
 
 main .recent-orders h2 {
@@ -381,13 +383,21 @@ main .recent-orders table:hover {
 }
 
 main table tbody td {
-  height: 2.8rem;
+  height: 4rem;
   border-bottom: 1px solid var(--color-light);
   color: var(--color-dark-variant);
+  padding: 5px;
+  
 }
 
 main table tbody tr:last-child td {
   border: none;
+}
+
+main table tbody td img {
+  height: 60px;
+  width: 60px;
+  border-radius: 5px;
 }
 
 main .recent-orders a {
@@ -555,6 +565,10 @@ main .recent-orders a {
     grid-template-columns: 7rem auto 23rem;
   }
 
+  aside {
+    height: 0vh;
+  }
+
   aside .logo h2 {
     display: none;
   }
@@ -599,22 +613,12 @@ main .recent-orders a {
   }
 
   main .recent-orders table {
-    width: 85.6%;
+    width: 88.5%;
   }
 
-  main table thead tr th:last-child,
-  main table thead tr th:first-child {
-    display: none;
-  }
+ 
 
-  main table tbody tr td:last-child,
-  main table tbody tr td:first-child {
-    display: none;
-  }
 
-  main table tbody td {
-    width: 1rem;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -737,4 +741,16 @@ main .recent-orders a {
     font-size: 2rem;
   }
  
+}
+
+@media  screen and (max-width: 620px) {
+   main table thead tr th:last-child,
+  main table thead tr th:first-child {
+    display: none;
+  }
+
+  main table tbody tr td:last-child,
+  main table tbody tr td:first-child {
+    display: none;
+  }
 }

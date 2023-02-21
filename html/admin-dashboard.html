@@ -37,19 +37,19 @@
         </div>
 
         <div class="sidebar">
-          <a href="#"
+          <a href="#" class="active" onclick="loadDashboard()"
             ><span class="material-icons-sharp">grid_view</span>
             <h3>Dashboard</h3>
           </a>
-          <a href="#" class="active"
+          <a href="#" name="customers-all" onclick="loadCustomers()"
             ><span class="material-symbols-outlined">groups</span>
             <h3>Customers</h3>
           </a>
-          <a href="#"
+          <a href="#" name="orders-all" onclick="loadAllOrders()"
             ><span class="material-icons-sharp">receipt_long</span>
             <h3>Orders</h3>
           </a>
-          <a href="#"
+          <a href="#" 
             ><span class="material-icons-sharp">insights</span>
             <h3>Analytics</h3>
           </a>
@@ -59,7 +59,7 @@
             <span class="message-count">26</span>
             <div class="message-count-media"></div>
           </a>
-          <a href="#"
+          <a href="#" name="products-all" onclick="loadAllProducts()"
             ><span class="material-icons-sharp">inventory</span>
             <h3>Products</h3>
           </a>
@@ -76,7 +76,7 @@
             <h3>Add Product</h3>
           </a>
           <a href="#"
-            ><span class="material-icons-sharp">logout</span>
+            ><span class="material-icons-sharp" onclick="logout()">logout</span>
             <h3>Logout</h3>
           </a>
         </div>
@@ -84,7 +84,7 @@
 
       <!-- --------------- END OF ASIDE --------------- -->
 
-      <main>
+      <main id="main">
         <h1>Dashboard</h1>
         <div class="date">
           <input type="date" />
@@ -158,49 +158,26 @@
           <table>
             <thead>
               <tr>
-                <th>Product Name</th>
-                <th>Product Number</th>
-                <th>Payment</th>
-                <th>Status</th>
                 <th></th>
+                <th style="width: 120px">Name</th>
+                <th>Type</th>
+                <th style="width: 20px;">Size/Quantity</th>
+                <th style="width: 40px;">Color/Flavor</th>
+                <th>Price</th>
+                <th>Cost</th>
+                <th>Count</th>
+                <th>OrderedAt</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
+            <tbody id="recent-orders-tbody">
+              <!-- <tr>
                 <td>Foldable Mini Drone</td>
                 <td>85631</td>
                 <td>Due</td>
                 <td class="warning">Pending</td>
                 <td class="primary">Details</td>
-              </tr>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Details</td>
-              </tr>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Details</td>
-              </tr>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Details</td>
-              </tr>
-              <tr>
-                <td>Foldable Mini Drone</td>
-                <td>85631</td>
-                <td>Due</td>
-                <td class="warning">Pending</td>
-                <td class="primary">Details</td>
-              </tr>
+              </tr> -->
+              
             </tbody>
           </table>
           <a href="#">Show All</a>
@@ -227,7 +204,7 @@
           </div>
         </div>
         <!-- --- END OF TOP --- -->
-        <div class="recent-updates">
+        <div id="recent-updates" class="recent-updates">
           <h2>Recent Updates</h2>
           <div class="updates">
             <div class="update">
@@ -278,7 +255,7 @@
         </div>
 
         <!-- --------------- END OF RECENT UPDATES --------------- -->
-        <div class="sales-analytics">
+        <div id="sales-analytics" class="sales-analytics">
           <h2>Sales Analytics</h2>
           <div class="item online">
             <div class="icon">
@@ -329,7 +306,6 @@
       </div>
     </div>
 
-    
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -338,7 +314,7 @@
 
     <script src="/js/design/admin-page.js"></script>
 
-    <script src="/js/logic/admin-panel/finances.js"></script>
-
+    <script src="/js/logic/admin-panel/dashboardData.js"></script>
+    <script src="/js/logic/logout.js"></script>
   </body>
 </html>

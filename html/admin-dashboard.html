@@ -27,7 +27,7 @@
     <div class="container">
       <aside>
         <div class="top">
-          <div class="logo">
+          <div class="logo" onclick="window.location.href = '/html/index.html'">
             <img src="/pictures/power3.png" alt="" />
             <!-- <h2>POWER<span class="danger">STORM</span></h2> -->
           </div>
@@ -37,46 +37,45 @@
         </div>
 
         <div class="sidebar">
-          <a href="#" class="active" onclick="loadDashboard()"
+          <a id="link-dashboard" name="dashboard" class="active"
             ><span class="material-icons-sharp">grid_view</span>
             <h3>Dashboard</h3>
           </a>
-          <a href="#" name="customers-all" onclick="loadCustomers()"
+          <a id="link-customers" name="customers-all" href="#"
             ><span class="material-symbols-outlined">groups</span>
             <h3>Customers</h3>
           </a>
-          <a href="#" name="orders-all" onclick="loadAllOrders()"
+          <a id="link-orders" name="orders-all"
             ><span class="material-icons-sharp">receipt_long</span>
             <h3>Orders</h3>
           </a>
-          <a href="#" 
+          <a 
             ><span class="material-icons-sharp">insights</span>
             <h3>Analytics</h3>
           </a>
-          <a href="#"
+          <a 
             ><span class="material-symbols-sharp"> mail </span>
             <h3>Messages</h3>
             <span class="message-count">26</span>
             <div class="message-count-media"></div>
           </a>
-          <a href="#" name="products-all" onclick="loadAllProducts()"
+          <a id="link-products" name="products-all"
             ><span class="material-icons-sharp">inventory</span>
             <h3>Products</h3>
           </a>
-          <a href="#"
+          <a 
             ><span class="material-icons-sharp">report_gmailerrorred</span>
             <h3>Reports</h3>
           </a>
-          <a href="#"
+          <a 
             ><span class="material-symbols-outlined"> settings </span>
             <h3>Settings</h3>
           </a>
-          <a href="#"
+          <a 
             ><span class="material-icons-sharp">add</span>
             <h3>Add Product</h3>
           </a>
-          <a href="#"
-            ><span class="material-icons-sharp" onclick="logout()">logout</span>
+          <a id="logout-btn" href="#" onclick="logout()"><span class="material-icons-sharp" >logout</span>
             <h3>Logout</h3>
           </a>
         </div>
@@ -184,7 +183,7 @@
         </div>
       </main>
       <!-- --------------- END OF MAIN --------------- -->
-      <div class="right">
+      <div id="right" class="right">
         <div class="top">
           <button id="menu-btn">
             <span class="material-icons-sharp">menu</span>
@@ -296,12 +295,12 @@
               <h3>849</h3>
             </div>
           </div>
-          <div class="item add-product">
+          <!-- <div class="item add-product">
             <div>
               <span class="material-icons-sharp">add</span>
               <h3>Add Product</h3>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -315,6 +314,7 @@
     <script src="/js/design/admin-page.js"></script>
 
     <script src="/js/logic/admin-panel/dashboardData.js"></script>
+    <script src="/js/logic/admin-panel/onClickLinks.js"></script>
     <script src="/js/logic/logout.js"></script>
   </body>
 </html>

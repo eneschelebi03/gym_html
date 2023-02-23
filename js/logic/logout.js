@@ -1,8 +1,7 @@
 let logoutBtn = document.getElementById("logout-btn");
 
-
 logoutBtn.onclick = function () {
-    logout
+    logout()
 };
 
 function logout() {

@@ -5,6 +5,6 @@ logoutBtn.onclick = function () {
 };
 
 function logout() {
-    window.location.href = '/html/index.html'
+    window.location.href = '/index.html'
     window.sessionStorage.clear();
 }

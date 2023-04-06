@@ -8,7 +8,7 @@ loginBtn.onclick = function (event) {
   let password = document.getElementById("password").value;
   $.ajax({
     type: "POST",
-    url: "http://localhost:8080/users/auth/login",
+    url: "http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/users/auth/login",
     contentType: "application/json",
     data: JSON.stringify({ username: username, password: password }),
     success: function (loginResponse) {
@@ -16,7 +16,7 @@ loginBtn.onclick = function (event) {
 
         window.sessionStorage.setItem('roles', loginResponse);
         window.sessionStorage.setItem('username', username);
-        window.location.href = "/html/index.html";
+        window.location.href = "/index.html";
         
       } else {
         // Login failed, do something here

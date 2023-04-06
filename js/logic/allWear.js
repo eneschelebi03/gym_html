@@ -3,7 +3,7 @@ $(document).ready(function () {
 });
 
 function loadAllProducts() {
-    $.get("http://localhost:8080/products/wear/all", function (responseJson) {
+    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/products/wear/all", function (responseJson) {
         let productsContainer = document.getElementById("products");
 
         let displayPoducts = [];
@@ -58,6 +58,7 @@ function loadAllProducts() {
         .fail(function () {
             alert("failed");
         });
+    
 }
 
 

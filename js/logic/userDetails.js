@@ -6,7 +6,7 @@ function loadUserDetails() {
     let email = window.sessionStorage.getItem("username");
 
     $.get(
-        "http://localhost:8080/users/user/details?" + $.param({ email: email }),
+        "http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/users/user/details?" + $.param({ email: email }),
         function (userDetails) {
             let username = document.getElementById("username");
             let email = document.getElementById("email");

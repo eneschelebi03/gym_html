@@ -9,7 +9,7 @@ function getCart() {
     let email = window.sessionStorage.getItem('username')
     let itemsPrice = 0;
 
-    $.get("http://localhost:8080/cart/products?" + $.param({ email: email }), function (responseJson) {
+    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/cart/products?" + $.param({ email: email }), function (responseJson) {
 
 
         if (Object.keys(responseJson).length === 0) {
@@ -123,7 +123,7 @@ function removeCartItem(id, chosenColor, chosenSize) {
     let email = window.sessionStorage.getItem('username')
 
     $.ajax({
-        url: 'http://localhost:8080/cart/removeProduct?' + $.param({ email: email }),
+        url: 'http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/cart/removeProduct?' + $.param({ email: email }),
         method: 'POST',
         contentType: "application/json",
         data: JSON.stringify({ wearId: id, color: chosenColor, size: chosenSize }),

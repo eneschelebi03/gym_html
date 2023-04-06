@@ -1,6 +1,6 @@
 function loadProductDetails(id) {
     $.get(
-        "http://localhost:8080/products/wear/" + id + "/details",
+        "http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/products/wear/" + id + "/details",
         function (product) {
             $("#product-styling").attr("href", "/css/product-page.css");
 

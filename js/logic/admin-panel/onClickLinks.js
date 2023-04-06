@@ -116,7 +116,7 @@ function loadCustomers() {
     // $('main .recent-orders table').css('width', '100%')
 
 
-    $.get("http://localhost:8080/admin-panel/all/customers", function (customers) {
+    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/admin-panel/all/customers", function (customers) {
 
         console.log(customers)
 
@@ -192,7 +192,7 @@ function loadAllOrders() {
     // $('main').css('grid-row', '2 / 3')
     // $('main .recent-orders table').css('width', '100%')
 
-    $.get("http://localhost:8080/admin-panel/all/orders", function (orders) {
+    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/admin-panel/all/orders", function (orders) {
 
         console.log(orders)
 
@@ -282,7 +282,7 @@ function loadAllProducts() {
     // $('main').css('grid-row', '2 / 3')
     // $('main .recent-orders table').css('width', '100%')
 
-    $.get("http://localhost:8080/admin-panel/all/products", function (products) {
+    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/admin-panel/all/products", function (products) {
 
         console.log(products)
 

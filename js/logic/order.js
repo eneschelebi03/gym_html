@@ -153,7 +153,7 @@ function submitOrder() {
 
     $.ajax({
         type: "POST",
-        url: "http://localhost:8080/order/new?" + $.param({ email: email }),
+        url: "http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/order/new?" + $.param({ email: email }),
         contentType: "application/json",
         data: JSON.stringify({ items: items, details: details }),
 
@@ -184,7 +184,7 @@ function successfulOrder() {
 function getOrderDetails() {
     let email = window.sessionStorage.getItem('username')
 
-    $.get("http://localhost:8080/order/current/products?" + $.param({ email: email }), function (responseJson) {
+    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/order/current/products?" + $.param({ email: email }), function (responseJson) {
 
         let container = document.getElementById('container')
 

@@ -6,7 +6,7 @@ $(document).ready(function () {
 
 function recentFinances() {
 
-    $.get("http://localhost:8080/admin-panel/recent/finances", function (finances) {
+    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/admin-panel/recent/finances", function (finances) {
 
         console.log(finances)
         let sales = document.getElementById('sales')
@@ -28,7 +28,7 @@ function recentFinances() {
 
 
 function recentOrders() {
-    $.get("http://localhost:8080/admin-panel/recent/orders", function (orders) {
+    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/admin-panel/recent/orders", function (orders) {
 
         console.log(orders)
 

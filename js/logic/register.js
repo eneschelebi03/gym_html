@@ -10,7 +10,7 @@ regBtn.onclick = function (event) {
     
     $.ajax({
       type: "POST",
-      url: "http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/users/register",
+      url: "https://www.gympowers.link/users/register",
       contentType: "application/json",
       data: JSON.stringify({
         username: username,

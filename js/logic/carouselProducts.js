@@ -1,5 +1,5 @@
 function loadTopSupplements() {
-    $.get("https://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/products/topSupps", function (responseJson) {
+    $.get("https://www.gympowers.link/products/topSupps", function (responseJson) {
         let topSuppsCarousel = document.getElementById("topSupplements");
         let productClass = 'supp-product'
 
@@ -11,7 +11,7 @@ function loadTopSupplements() {
 }
 
 function loadTopWear() {
-    $.get("https://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/products/topWear", function (responseJson) {
+    $.get("https://www.gympowers.link/products/topWear", function (responseJson) {
         let topWearCarousel = document.getElementById("topWear");
         let productClass = 'product'
 
@@ -23,7 +23,7 @@ function loadTopWear() {
 }
 
 function loadRecommendedProducts(productId) {
-    $.get("https://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/products/wear/" + productId + "/related/", function (responseJson) {
+    $.get("https://www.gympowers.link/products/wear/" + productId + "/related/", function (responseJson) {
         let recommendedProductsCarousel = document.getElementById('recommended-products');
         let productClass = 'product'
 

@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 
 function loadMainCarousel() {
-    $.get("http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/offers/carousel", function (responseJson) {
+    $.get("https://www.gympowers.link/offers/carousel", function (responseJson) {
 
         let exclusiveCarousel = document.getElementById('offers')
 

@@ -8,7 +8,7 @@ loginBtn.onclick = function (event) {
   let password = document.getElementById("password").value;
   $.ajax({
     type: "POST",
-    url: "http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/users/auth/login",
+    url: "https://www.gympowers.link/users/auth/login",
     contentType: "application/json",
     data: JSON.stringify({ username: username, password: password }),
     success: function (loginResponse) {

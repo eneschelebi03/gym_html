@@ -6,7 +6,7 @@ function loadUserDetails() {
     let email = window.sessionStorage.getItem("username");
 
     $.get(
-        "http://gympowerservice-env.eba-kpmqhwzg.eu-north-1.elasticbeanstalk.com/users/user/details?" + $.param({ email: email }),
+        "https://www.gympowers.link/users/user/details?" + $.param({ email: email }),
         function (userDetails) {
             let username = document.getElementById("username");
             let email = document.getElementById("email");

@@ -755,6 +755,13 @@ input[type="checkbox"]:checked + label:after {
   box-shadow: none;
 }
 
+.no-items-message {
+  font-size: 50px;
+  font-weight: 700;
+  color: #6e6e6e5f;
+
+}
+
 /* ================== RESPONSIVE ================== */
 
 @media (max-width: 1200px) {

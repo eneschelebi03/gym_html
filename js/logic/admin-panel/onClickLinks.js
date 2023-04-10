@@ -18,6 +18,16 @@ options.forEach(option => {
     }
 })
 
+function showAllOrders() {
+    options.forEach((option) => {
+      option.classList.remove("active");
+    });
+
+    loadAllOrders()
+
+    $('#link-orders').addClass('active')
+}
+
 function linkLoad(object) {
     hideRight()
 

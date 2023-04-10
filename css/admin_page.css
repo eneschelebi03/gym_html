@@ -161,6 +161,10 @@ aside .logo {
   gap: 0.8rem;
 }
 
+aside .logo:hover {
+  cursor: pointer;
+}
+
 aside .logo img {
   height: 3.5rem;
 }
@@ -406,6 +410,12 @@ main .recent-orders a {
   display: block;
   margin: 1rem auto;
   color: var(--color-primary);
+  width: 50px;
+}
+
+main .recent-orders a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid var(--color-primary);
 }
 
 /* ================== RIGHT ================== */

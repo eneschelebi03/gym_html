@@ -254,7 +254,7 @@ function getOrderDetails() {
         continueBtn.classList.add('continue-btn')
         continueBtn.innerText = 'Continue Shopping'
         continueBtn.onclick = function () {
-            window.location.href = '/html/index.html'
+            window.location.href = '/index.html'
         }
         container.append(continueBtn)
 

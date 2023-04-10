@@ -47,9 +47,9 @@ function cartItemAdded() {
 function showUserDetails() {
 
 
-    if (userRoles != null) {
-        window.location.href = "/html/profile.html";
-    } 
-
-
+    if (userRoles != null && !userRoles.includes("ROLE_ADMIN")) {
+      window.location.href = "/html/profile.html";
+    } else if (userRoles.includes("ROLE_ADMIN")) {
+      window.location.href = "/html/admin-dashboard.html";
+    }
 }

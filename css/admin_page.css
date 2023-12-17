@@ -510,7 +510,7 @@ main .recent-orders a:hover {
 .right .sales-analytics .item {
   background: var(--color-white);
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 1rem;
   margin-bottom: 0.7rem;
   padding: 1.4rem var(--card-padding);

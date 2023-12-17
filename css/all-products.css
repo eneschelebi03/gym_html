@@ -152,10 +152,22 @@ img {
   padding: 0 20px 20px;
 }
 
-.buy span {
+
+.buy .new-price, 
+.buy .old-price {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   font-size: 1.5rem;
+}
+
+.buy .new-price {
+  margin-right: 0.7rem;
+}
+
+.buy .old-price {
+  font-size: 1rem;
+  text-decoration: line-through;
+  color: rgb(232, 150, 62);
 }
 
 small {

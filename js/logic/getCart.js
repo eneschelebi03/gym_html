@@ -9,8 +9,13 @@ function getCart() {
   let email = window.sessionStorage.getItem("username");
   let itemsPrice = 0;
 
+  // let itemPrice = cartItem.price
+
+  // if ()
+
+  // www.gympowers.link;
   $.get(
-    "https://www.gympowers.link/cart/products?" + $.param({ email: email }),
+    "http://localhost:8080/cart/products?" + $.param({ email: email }),
     function (responseJson) {
       if (Object.keys(responseJson).length === 0) {
         $("#container").css("align-items", "center");
@@ -173,9 +178,10 @@ function getCart() {
 function removeCartItem(id, chosenColor, chosenSize) {
   let email = window.sessionStorage.getItem("username");
 
+  // www.gympowers.link;
   $.ajax({
     url:
-      "https://www.gympowers.link/cart/removeProduct?" +
+      "http://localhost:8080/cart/removeProduct?" +
       $.param({ email: email }),
     method: "POST",
     contentType: "application/json",

@@ -1,10 +1,10 @@
 let logoutBtn = document.getElementById("logout-btn");
 
 logoutBtn.onclick = function () {
-    logout()
+  logout();
 };
 
 function logout() {
-    window.location.href = '/index.html'
-    window.sessionStorage.clear();
+  window.location.href = "/index.html";
+  window.sessionStorage.clear();
 }

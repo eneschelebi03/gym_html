@@ -73,13 +73,26 @@ body {
   font-weight: 500;
 }
 
-.single-product h4 {
-  color: #4d4f53;
-  font-size: 35px;
-  font-weight: bold;
+.single-product .price {
   padding: 15px 0 15px;
   border-top: 1px solid #555;
   border-bottom: 1px solid #555;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.single-product .price .new-price-details {
+  color: #4d4f53;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.single-product .price .old-price-details {
+  color: #ff9a3b;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: line-through;
 }
 
 .single-product a {

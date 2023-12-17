@@ -1,64 +1,75 @@
 $(document).ready(function () {
-    loadAllProducts();
+	loadAllProducts();
 });
 
+// www.gympowers.link
+
 function loadAllProducts() {
-    $.get("https://www.gympowers.link/products/wear/all", function (responseJson) {
-        let productsContainer = document.getElementById("products");
+	console.log(document.cookie);
 
-        let displayPoducts = [];
+	$.get("http://localhost:8080/products/wear/all", function (responseJson) {
+		let productsContainer = document.getElementById("products");
 
-        $.each(responseJson, function (index, product) {
-            let productDisplay = document.createElement("div");
+		let displayPoducts = [];
 
-            productDisplay.innerHTML =
-                "<picture>\n" +
-                '                <img src="' +
-                product.pictureUrl +
-                '"  alt=""/>\n' +
-                "            </picture>\n" +
-                '            <div class="details">\n' +
-                "                <p>\n" +
-                "                    <b>" +
-                product.name +
-                "</b><br/>\n" +
-                "                    <small>New arrival</small>\n" +
-                "                </p>\n" +
-                '                <p class="star">\n' +
-                "                    <strong>&star;</strong>\n" +
-                "                    <strong>&star;</strong>\n" +
-                "                    <strong>&star;</strong>\n" +
-                "                    <strong>&star;</strong>\n" +
-                "                    <strong>&star;</strong>\n" +
-                "                </p>\n" +
-                '                <div class="description">' +
-                product.description +
-                "</div>" +
-                "            </div>\n" +
-                '            <div class="buy">\n' +
-                "                <span>$" +
-                product.price.toFixed(2) +
-                "</span>\n" +
-                '                <a class="buy-button" href="#">Buy</a>\n' +
-                "            </div>";
+		$.each(responseJson, function (index, product) {
+			let productDisplay = document.createElement("div");
 
-            productDisplay.classList.add("product");
-            productsContainer.append(productDisplay);
+			let newPrice = product.price;
+            let oldPrice = product.price
+			let oldPriceElement = "";
 
-            productDisplay.onclick = function () {
+            const discount = product.discount
 
-                loadProductDetails(product.id)
-            }
+			if (discount) {
+				oldPriceElement = `<span class="old-price">$${oldPrice.toFixed(2)}</span>`;
+                newPrice = oldPrice - (oldPrice * discount / 100);
+			}
 
-        });
+			productDisplay.innerHTML =
+				"<picture>\n" +
+				'                <img src="' +
+				product.pictureUrl +
+				'"  alt=""/>\n' +
+				"            </picture>\n" +
+				'            <div class="details">\n' +
+				"                <p>\n" +
+				"                    <b>" +
+				product.name +
+				"</b><br/>\n" +
+				"                    <small>New arrival</small>\n" +
+				"                </p>\n" +
+				'                <p class="star">\n' +
+				"                    <strong>&star;</strong>\n" +
+				"                    <strong>&star;</strong>\n" +
+				"                    <strong>&star;</strong>\n" +
+				"                    <strong>&star;</strong>\n" +
+				"                    <strong>&star;</strong>\n" +
+				"                </p>\n" +
+				'                <div class="description">' +
+				product.description +
+				"</div>" +
+				"            </div>\n" +
+				'            <div class="buy">\n' +
+                '               <div>' +
+				"                   <span class='new-price'>$" +
+				newPrice.toFixed(2) +
+				"                   </span>\n" +
+				oldPriceElement +
+                '               </div>' +
+				'                <a class="buy-button" href="#">View</a>\n' +
+				"            </div>";
 
+			productDisplay.classList.add("product");
+			productsContainer.append(productDisplay);
 
-    })
-        .done(function () { })
-        .fail(function () {
-            alert("failed");
-        });
-    
+			productDisplay.onclick = function () {
+				loadProductDetails(product.id);
+			};
+		});
+	})
+		.done(function () {})
+		.fail(function () {
+			alert("failed");
+		});
 }
-
-

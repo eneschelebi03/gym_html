@@ -1,23 +1,21 @@
 let loginBtn = document.getElementById("login-btn");
 
-
 loginBtn.onclick = function (event) {
   event.preventDefault();
 
   let username = document.getElementById("username-or-email").value;
   let password = document.getElementById("password").value;
+  // www.gympowers.link;
   $.ajax({
     type: "POST",
-    url: "https://www.gympowers.link/users/auth/login",
+    url: "http://localhost:8080/users/auth/login",
     contentType: "application/json",
     data: JSON.stringify({ username: username, password: password }),
     success: function (loginResponse) {
       if (!loginResponse.includes("ROLE_ANONYMOUS")) {
-
-        window.sessionStorage.setItem('roles', loginResponse);
-        window.sessionStorage.setItem('username', username);
+        window.sessionStorage.setItem("roles", loginResponse);
+        window.sessionStorage.setItem("username", username);
         window.location.href = "/index.html";
-        
       } else {
         // Login failed, do something here
       }
@@ -27,4 +25,3 @@ loginBtn.onclick = function (event) {
     },
   });
 };
-

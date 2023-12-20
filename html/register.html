@@ -21,12 +21,15 @@
     <div class="container sign-up-mode">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="http://localhost:8080/users/login" method="POST" class="sign-in-form">
+          <form class="sign-in-form">
             <img
               src="/pictures/power3.png"
               alt="POWERSTORM"
               onclick="location.href='/index.html'"
             />
+            <div id="auth-error" class="auth-error">
+              Invalid login credentials
+            </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input
@@ -66,6 +69,9 @@
 
           <form action="" class="sign-up-form">
             <img src="/pictures/power3.png" alt="POWERSTORM" href="" />
+             <div id="register-error" class="auth-error">
+              Invalid register credentials
+            </div>
             <div class="input-field">
               <i class="fas fa-user"></i>
               <input id="reg-username" type="text" placeholder="Username" />
@@ -143,6 +149,7 @@
 
 
     <script src="/js/logic/register.js"></script>
+    <script src="/js/logic/login.js"></script>
 
     <script src="/js/design/reg-login.js"></script>
   </body>

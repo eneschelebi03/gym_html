@@ -1,32 +1,43 @@
-let regBtn = document.getElementById("reg-btn");
+const regBtn = document.getElementById("reg-btn");
+
+let registerError = document.getElementById("register-error");
+registerError.style.display = "none";
+
+const usernameInput = document.getElementById("reg-username");
+const emailInput = document.getElementById("reg-email");
+const passwordInput = document.getElementById("reg-password");
 
 regBtn.onclick = function (event) {
-  event.preventDefault();
+	event.preventDefault();
 
-  let username = document.getElementById("reg-username").value;
-  let email = document.getElementById("reg-email").value;
-  let password = document.getElementById("reg-password").value;
-  // www.gympowers.link;
-  $.ajax({
-    type: "POST",
-    url: "http://localhost:8080/users/register",
-    contentType: "application/json",
-    data: JSON.stringify({
-      username: username,
-      email: email,
-      password: password,
-    }),
-    success: function (loginResponse) {
-      if (!loginResponse.includes("ROLE_ANONYMOUS")) {
-        window.sessionStorage.setItem("roles", loginResponse);
-        window.sessionStorage.setItem("username", email);
-        window.location.href = "/index.html";
-      } else {
-        // Login failed, do something here
-      }
-    },
-    error: function () {
-      // Handle error
-    },
-  });
+	const usernameValue = usernameInput.value;
+	const emailValue = emailInput.value;
+	const passwordValue = passwordInput.value;
+	// www.gympowers.link;
+	$.ajax({
+		type: "POST",
+		url: "http://localhost:8080/users/register",
+		contentType: "application/json",
+		data: JSON.stringify({
+			username: usernameValue,
+			email: emailValue,
+			password: passwordValue,
+		}),
+		success: function (loginResponse) {
+			if (
+				loginResponse.includes("ROLE_USER") ||
+				loginResponse.includes("ROLE_ADMIN") ||
+				loginResponse.includes("ROLE_MODERATOR")
+			) {
+				window.sessionStorage.setItem("roles", loginResponse);
+				window.sessionStorage.setItem("username", emailValue);
+				window.location.href = "/index.html";
+			} else {
+				registerError.style.display = "block";
+			}
+		},
+		error: function () {
+			registerError.style.display = "block";
+		},
+	});
 };

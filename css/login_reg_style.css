@@ -65,6 +65,21 @@ form {
   transition: 0.2s 0.7s ease-in-out;
 }
 
+.auth-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border: 1px solid #f5c6cb;
+  border-radius: 55px;
+  margin-bottom: 15px;
+}
+
+.auth-error::before {
+  content: "Error: ";
+  font-weight: bold;
+}
+
+
 form.sign-in-form {
   z-index: 2;
 }
@@ -83,6 +98,10 @@ form img {
   width: 300px;
   margin-bottom: 25px;
   cursor: pointer;
+}
+
+.wrong-input {
+  border: 2px solid #ff4b4b;
 }
 
 .input-field {
